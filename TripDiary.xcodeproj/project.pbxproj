@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		A9F1D78D2605BF15005F0B3C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D78C2605BF15005F0B3C /* SignUpViewController.swift */; };
 		A9F1D7942605DB09005F0B3C /* TextFieldUnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7932605DB09005F0B3C /* TextFieldUnderLine.swift */; };
 		A9F1D7992605DBEB005F0B3C /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7982605DBEB005F0B3C /* SignUpModel.swift */; };
+		A9F1D7A926063F0D005F0B3C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7A826063F0D005F0B3C /* SignUpViewModel.swift */; };
 		B570081F1649955A546D9AB8 /* Pods_TripDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BEA9ADF556593256C23F2A /* Pods_TripDiary.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		A9F1D78C2605BF15005F0B3C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A9F1D7932605DB09005F0B3C /* TextFieldUnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldUnderLine.swift; sourceTree = "<group>"; };
 		A9F1D7982605DBEB005F0B3C /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		A9F1D7A826063F0D005F0B3C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		D9A3EBEC23E418C1DCD1462C /* Pods_TripDiaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripDiaryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DE2B042A6E3FA2BA36D1D9 /* Pods-TripDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiary.debug.xcconfig"; path = "Target Support Files/Pods-TripDiary/Pods-TripDiary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,7 +111,6 @@
 				444AC385811A16F6DF43ADCE /* Pods-TripDiaryTests.debug.xcconfig */,
 				929A1AFCA8C1FA332BEE1E40 /* Pods-TripDiaryTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -197,6 +198,7 @@
 		A9F1D7752605ABC3005F0B3C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A9F1D7A826063F0D005F0B3C /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -485,6 +487,7 @@
 			files = (
 				A9F1D73B2605AB2F005F0B3C /* MainViewController.swift in Sources */,
 				A9F1D7992605DBEB005F0B3C /* SignUpModel.swift in Sources */,
+				A9F1D7A926063F0D005F0B3C /* SignUpViewModel.swift in Sources */,
 				A9F1D7372605AB2F005F0B3C /* AppDelegate.swift in Sources */,
 				A9F1D7942605DB09005F0B3C /* TextFieldUnderLine.swift in Sources */,
 				A9F1D7392605AB2F005F0B3C /* SceneDelegate.swift in Sources */,

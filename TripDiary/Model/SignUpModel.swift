@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct SignUpModel: Encodable{
+struct SignUpModel: Encodable {
+    
     let id: String
     let password: String
 }
