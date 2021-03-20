@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vpd-Ff-Qs8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uka-kf-z7L">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,6 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NanumSquareOTF_acB.otf">
+            <string>NanumSquareOTF_acB</string>
+        </array>
+        <array key="NanumSquareOTF_acL.otf">
+            <string>NanumSquareOTF_acL</string>
+        </array>
         <array key="NanumSquareOTF_acR.otf">
             <string>NanumSquareOTF_acR</string>
         </array>
@@ -41,6 +47,9 @@
                                         <state key="normal" title="로그인">
                                             <color key="titleColor" red="0.25490196079999999" green="0.74117647060000003" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="lgx-Ms-wfh" kind="show" id="I6f-xp-SfK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m78-aW-zrg">
                                         <rect key="frame" x="0.0" y="70" width="354" height="50"/>
@@ -53,6 +62,9 @@
                                         <state key="normal" title="회원가입">
                                             <color key="titleColor" red="0.25490196079999999" green="0.74117647060000003" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Uka-kf-z7L" kind="show" id="cou-dl-hLR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -119,6 +131,259 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKq-uq-cgS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1068.1159420289855" y="138.61607142857142"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="kgn-fa-a3S">
+            <objects>
+                <viewController storyboardIdentifier="Login" id="lgx-Ms-wfh" customClass="LoginViewController" customModule="TripDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="syj-tU-iuJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="AEg-0T-DNr" userLabel="Text Field View">
+                                <rect key="frame" x="30" y="278" width="354" height="159"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UserID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qlM-7l-LMC" customClass="HSUnderLineTextField" customModule="TripDiary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="66X-pv-g6M"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTF_acL" family="NanumSquareOTF_ac" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zgk-Yg-MaK" customClass="HSUnderLineTextField" customModule="TripDiary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70" width="354" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Jh9-Dy-WOh"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTF_acL" family="NanumSquareOTF_ac" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" red="0.93717074389999999" green="0.94515079260000001" blue="0.93714326619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Rj1-Tf-cKE" userLabel="Find Password View">
+                                        <rect key="frame" x="0.0" y="140" width="354" height="19"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgE-Pq-ykj">
+                                                <rect key="frame" x="271" y="0.0" width="83" height="19"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="19" id="gNs-KO-Rcr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareOTF_acR" family="NanumSquareOTF_ac" pointSize="15"/>
+                                                <state key="normal" title="비밀번호 찾기">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Rj1-Tf-cKE" secondAttribute="trailing" id="7Iu-Zr-fro"/>
+                                    <constraint firstItem="Rj1-Tf-cKE" firstAttribute="leading" secondItem="AEg-0T-DNr" secondAttribute="leading" id="nFF-dJ-JHK"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yc-BK-FVj" userLabel="Login">
+                                <rect key="frame" x="30" y="478" width="354" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="wDA-ku-pkV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NanumSquareOTF_acB" family="NanumSquareOTF_ac" pointSize="15"/>
+                                <state key="normal" title="확인">
+                                    <color key="titleColor" red="0.32156862749999998" green="0.71372549019999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="올바른 아이디를 입력하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRr-c3-O8O" userLabel="WrongIdLabel">
+                                <rect key="frame" x="30" y="323" width="144" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="NP1-9m-s8t"/>
+                                    <constraint firstAttribute="height" constant="25" id="zZg-Rj-Xw7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NanumSquareOTF_acL" family="NanumSquareOTF_ac" pointSize="10"/>
+                                <color key="textColor" red="0.97647058819999999" green="0.035294117649999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="올바른 비밀번호를 입력하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SD4-1q-AVE" userLabel="WrongPasswordLabel">
+                                <rect key="frame" x="30" y="393" width="144" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="BNv-76-JSc"/>
+                                    <constraint firstAttribute="height" constant="25" id="tqU-bt-VJJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NanumSquareOTF_acL" family="NanumSquareOTF_ac" pointSize="10"/>
+                                <color key="textColor" red="0.97647058819999999" green="0.035294117649999998" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="koY-d2-JvD"/>
+                        <color key="backgroundColor" red="0.32156862749999998" green="0.71372549019999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="AEg-0T-DNr" firstAttribute="top" secondItem="koY-d2-JvD" secondAttribute="top" constant="190" id="61g-fQ-wQs"/>
+                            <constraint firstItem="SD4-1q-AVE" firstAttribute="top" secondItem="Zgk-Yg-MaK" secondAttribute="bottom" constant="5" id="INZ-zk-8Py"/>
+                            <constraint firstItem="koY-d2-JvD" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="SD4-1q-AVE" secondAttribute="trailing" constant="240" id="K5n-le-7wY"/>
+                            <constraint firstItem="AEg-0T-DNr" firstAttribute="leading" secondItem="koY-d2-JvD" secondAttribute="leading" constant="30" id="Yab-K6-EI9"/>
+                            <constraint firstItem="koY-d2-JvD" firstAttribute="trailing" secondItem="2yc-BK-FVj" secondAttribute="trailing" constant="30" id="ZN6-iI-nrW"/>
+                            <constraint firstItem="sRr-c3-O8O" firstAttribute="top" secondItem="qlM-7l-LMC" secondAttribute="bottom" constant="5" id="hMz-ES-3Ec"/>
+                            <constraint firstItem="sRr-c3-O8O" firstAttribute="leading" secondItem="koY-d2-JvD" secondAttribute="leading" constant="30" id="mYe-NU-8nk"/>
+                            <constraint firstItem="2yc-BK-FVj" firstAttribute="top" secondItem="koY-d2-JvD" secondAttribute="top" constant="390" id="pRZ-zd-l2w"/>
+                            <constraint firstItem="koY-d2-JvD" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="sRr-c3-O8O" secondAttribute="trailing" constant="240" id="uMu-Nc-pbq"/>
+                            <constraint firstItem="SD4-1q-AVE" firstAttribute="leading" secondItem="koY-d2-JvD" secondAttribute="leading" constant="30" id="wH5-AQ-rxq"/>
+                            <constraint firstItem="koY-d2-JvD" firstAttribute="trailing" secondItem="AEg-0T-DNr" secondAttribute="trailing" constant="30" id="xEr-eh-foj"/>
+                            <constraint firstItem="2yc-BK-FVj" firstAttribute="leading" secondItem="koY-d2-JvD" secondAttribute="leading" constant="30" id="xY1-Zm-n33"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sYj-Va-u5A"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FAm-9y-0bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2838" y="-258"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="iNF-6J-eEY">
+            <objects>
+                <viewController id="Uka-kf-z7L" customClass="SignUpViewController" customModule="TripDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="64z-Wo-MBF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Sz3-Qc-7OY" userLabel="Text Field View">
+                                <rect key="frame" x="30" y="278" width="354" height="180"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UserID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qtb-s4-Xko" customClass="HSUnderLineTextField" customModule="TripDiary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Gcg-jl-QP9"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTF_acL" family="NanumSquareOTF_ac" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Bb-Rk-tZ8" customClass="HSUnderLineTextField" customModule="TripDiary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70" width="354" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="vTP-dP-or3"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTF_acL" family="NanumSquareOTF_ac" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" red="0.93717074389999999" green="0.94515079260000001" blue="0.93714326619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PasswordConfirm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MZA-tf-CaH" customClass="HSUnderLineTextField" customModule="TripDiary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="140" width="354" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="GId-Ln-DGx"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTF_acL" family="NanumSquareOTF_ac" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" red="0.93717074389999999" green="0.94515079260000001" blue="0.93714326619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWm-wG-9Kr" userLabel="Join">
+                                <rect key="frame" x="30" y="478" width="354" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ReF-RG-HaD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NanumSquareOTF_acB" family="NanumSquareOTF_ac" pointSize="15"/>
+                                <state key="normal" title="확인">
+                                    <color key="titleColor" red="0.32156862749999998" green="0.71372549019999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirm:" destination="Uka-kf-z7L" eventType="touchUpInside" id="rMf-qQ-C7g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cr3-Ja-IzH"/>
+                        <color key="backgroundColor" red="0.32156862749999998" green="0.71372549019999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="cr3-Ja-IzH" firstAttribute="trailing" secondItem="Sz3-Qc-7OY" secondAttribute="trailing" constant="30" id="2qA-yf-3Z4"/>
+                            <constraint firstItem="dWm-wG-9Kr" firstAttribute="top" secondItem="cr3-Ja-IzH" secondAttribute="top" constant="390" id="71l-7m-LOB"/>
+                            <constraint firstItem="dWm-wG-9Kr" firstAttribute="leading" secondItem="cr3-Ja-IzH" secondAttribute="leading" constant="30" id="OGR-Li-sAj"/>
+                            <constraint firstItem="cr3-Ja-IzH" firstAttribute="trailing" secondItem="dWm-wG-9Kr" secondAttribute="trailing" constant="30" id="OwH-xg-fvG"/>
+                            <constraint firstItem="Sz3-Qc-7OY" firstAttribute="top" secondItem="cr3-Ja-IzH" secondAttribute="top" constant="190" id="PDU-h9-FKv"/>
+                            <constraint firstItem="Sz3-Qc-7OY" firstAttribute="leading" secondItem="cr3-Ja-IzH" secondAttribute="leading" constant="30" id="U7u-3L-Tfr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VfH-O3-QX1"/>
+                    <connections>
+                        <outlet property="pwConfirmTextfield" destination="MZA-tf-CaH" id="sau-Uf-czI"/>
+                        <outlet property="pwTextField" destination="2Bb-Rk-tZ8" id="OGM-hg-6N3"/>
+                        <outlet property="userIdTextField" destination="Qtb-s4-Xko" id="2Ye-P4-9xr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mz7-E0-7x6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2838" y="637"/>
         </scene>
     </scenes>
     <resources>

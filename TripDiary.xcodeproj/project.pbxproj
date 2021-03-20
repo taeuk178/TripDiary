@@ -15,7 +15,10 @@
 		A9F1D7432605AB32005F0B3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F1D7412605AB32005F0B3C /* LaunchScreen.storyboard */; };
 		A9F1D74E2605AB32005F0B3C /* TripDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D74D2605AB32005F0B3C /* TripDiaryTests.swift */; };
 		A9F1D7592605AB32005F0B3C /* TripDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7582605AB32005F0B3C /* TripDiaryUITests.swift */; };
-		A9F1D7852605B187005F0B3C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7842605B187005F0B3C /* Extension.swift */; };
+		A9F1D7852605B187005F0B3C /* Extension+UIcolor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7842605B187005F0B3C /* Extension+UIcolor.swift */; };
+		A9F1D78D2605BF15005F0B3C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D78C2605BF15005F0B3C /* SignUpViewController.swift */; };
+		A9F1D7942605DB09005F0B3C /* TextFieldUnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7932605DB09005F0B3C /* TextFieldUnderLine.swift */; };
+		A9F1D7992605DBEB005F0B3C /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7982605DBEB005F0B3C /* SignUpModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +53,10 @@
 		A9F1D7542605AB32005F0B3C /* TripDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F1D7582605AB32005F0B3C /* TripDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDiaryUITests.swift; sourceTree = "<group>"; };
 		A9F1D75A2605AB32005F0B3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9F1D7842605B187005F0B3C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		A9F1D7842605B187005F0B3C /* Extension+UIcolor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIcolor.swift"; sourceTree = "<group>"; };
+		A9F1D78C2605BF15005F0B3C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A9F1D7932605DB09005F0B3C /* TextFieldUnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldUnderLine.swift; sourceTree = "<group>"; };
+		A9F1D7982605DBEB005F0B3C /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +148,7 @@
 		A9F1D7742605ABBE005F0B3C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A9F1D7982605DBEB005F0B3C /* SignUpModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,7 +173,8 @@
 		A9F1D7772605ABCE005F0B3C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				A9F1D7842605B187005F0B3C /* Extension.swift */,
+				A9F1D7842605B187005F0B3C /* Extension+UIcolor.swift */,
+				A9F1D7932605DB09005F0B3C /* TextFieldUnderLine.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -191,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F1D73A2605AB2F005F0B3C /* MainViewController.swift */,
+				A9F1D78C2605BF15005F0B3C /* SignUpViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -326,9 +335,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F1D73B2605AB2F005F0B3C /* MainViewController.swift in Sources */,
+				A9F1D7992605DBEB005F0B3C /* SignUpModel.swift in Sources */,
 				A9F1D7372605AB2F005F0B3C /* AppDelegate.swift in Sources */,
+				A9F1D7942605DB09005F0B3C /* TextFieldUnderLine.swift in Sources */,
 				A9F1D7392605AB2F005F0B3C /* SceneDelegate.swift in Sources */,
-				A9F1D7852605B187005F0B3C /* Extension.swift in Sources */,
+				A9F1D7852605B187005F0B3C /* Extension+UIcolor.swift in Sources */,
+				A9F1D78D2605BF15005F0B3C /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
