@@ -6,17 +6,31 @@
 //
 
 import UIKit
-
+import AuthenticationServices
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor.naviGreenColor
         
 //        sleep(3)
+        
+//        let appleIDProvider = ASAuthorizationAppleIDProvider()
+//        appleIDProvider.getCredentialState(forUserID: <#T##String#>) { (credentialState, error) in
+//            switch credentialState {
+//            case .authorized:
+//                break
+//            case .revoked, .notFound:
+//                DispatchQueue.main.async {
+//                    self.window?.rootViewController.MainViewController()
+//                }
+//            default:
+//                break
+//            }
+//        }
         return true
     }
 

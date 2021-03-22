@@ -50,6 +50,7 @@
 		78869E5F6E26028AFAF0BFF7 /* Pods-TripDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiary.release.xcconfig"; path = "Target Support Files/Pods-TripDiary/Pods-TripDiary.release.xcconfig"; sourceTree = "<group>"; };
 		929A1AFCA8C1FA332BEE1E40 /* Pods-TripDiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiaryTests.release.xcconfig"; path = "Target Support Files/Pods-TripDiaryTests/Pods-TripDiaryTests.release.xcconfig"; sourceTree = "<group>"; };
 		A26878E8C5C1D9F7CFDD0564 /* Pods-TripDiary-TripDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiary-TripDiaryUITests.release.xcconfig"; path = "Target Support Files/Pods-TripDiary-TripDiaryUITests/Pods-TripDiary-TripDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A97A2B7A2608668E00BC9BF0 /* TripDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TripDiary.entitlements; sourceTree = "<group>"; };
 		A9F1D7332605AB2F005F0B3C /* TripDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F1D7362605AB2F005F0B3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9F1D7382605AB2F005F0B3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 		A9F1D7352605AB2F005F0B3C /* TripDiary */ = {
 			isa = PBXGroup;
 			children = (
+				A97A2B7A2608668E00BC9BF0 /* TripDiary.entitlements */,
 				A9F1D7722605ABA7005F0B3C /* Network */,
 				A9F1D7772605ABCE005F0B3C /* Helper */,
 				A9F1D7762605ABC8005F0B3C /* View */,
@@ -669,7 +671,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TripDiary/TripDiary.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TripDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -678,6 +683,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.TripDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -689,7 +695,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TripDiary/TripDiary.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TripDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -698,6 +707,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.TripDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

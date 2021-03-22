@@ -110,6 +110,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UDn-XY-w91"/>
+                    <connections>
+                        <outlet property="appleLoginButton" destination="d4v-tY-Fc9" id="BaQ-ao-EsX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbj-aM-E8T" sceneMemberID="firstResponder"/>
             </objects>
