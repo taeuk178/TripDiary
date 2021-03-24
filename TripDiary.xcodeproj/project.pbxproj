@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1AE47CD71EC20FB62AC46BCA /* Pods_TripDiary_TripDiaryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFEDF8DC9316E63D6A17C5F /* Pods_TripDiary_TripDiaryUITests.framework */; };
 		1DF700108CA762155257862B /* Pods_TripDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A3EBEC23E418C1DCD1462C /* Pods_TripDiaryTests.framework */; };
+		A97A2B9426088A2C00BC9BF0 /* HTTPEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */; };
+		A97A2B9F260B108100BC9BF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */; };
 		A9F1D7372605AB2F005F0B3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7362605AB2F005F0B3C /* AppDelegate.swift */; };
 		A9F1D7392605AB2F005F0B3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7382605AB2F005F0B3C /* SceneDelegate.swift */; };
 		A9F1D73B2605AB2F005F0B3C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D73A2605AB2F005F0B3C /* MainViewController.swift */; };
@@ -51,6 +53,8 @@
 		929A1AFCA8C1FA332BEE1E40 /* Pods-TripDiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiaryTests.release.xcconfig"; path = "Target Support Files/Pods-TripDiaryTests/Pods-TripDiaryTests.release.xcconfig"; sourceTree = "<group>"; };
 		A26878E8C5C1D9F7CFDD0564 /* Pods-TripDiary-TripDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiary-TripDiaryUITests.release.xcconfig"; path = "Target Support Files/Pods-TripDiary-TripDiaryUITests/Pods-TripDiary-TripDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A97A2B7A2608668E00BC9BF0 /* TripDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TripDiary.entitlements; sourceTree = "<group>"; };
+		A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEnum.swift; sourceTree = "<group>"; };
+		A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A9F1D7332605AB2F005F0B3C /* TripDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F1D7362605AB2F005F0B3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9F1D7382605AB2F005F0B3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			children = (
 				A9F1D7842605B187005F0B3C /* Extension+UIcolor.swift */,
 				A9F1D7932605DB09005F0B3C /* TextFieldUnderLine.swift */,
+				A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			children = (
 				A9F1D73A2605AB2F005F0B3C /* MainViewController.swift */,
 				A9F1D78C2605BF15005F0B3C /* SignUpViewController.swift */,
+				A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -492,6 +498,8 @@
 				A9F1D7A926063F0D005F0B3C /* SignUpViewModel.swift in Sources */,
 				A9F1D7372605AB2F005F0B3C /* AppDelegate.swift in Sources */,
 				A9F1D7942605DB09005F0B3C /* TextFieldUnderLine.swift in Sources */,
+				A97A2B9F260B108100BC9BF0 /* HomeViewController.swift in Sources */,
+				A97A2B9426088A2C00BC9BF0 /* HTTPEnum.swift in Sources */,
 				A9F1D7392605AB2F005F0B3C /* SceneDelegate.swift in Sources */,
 				A9F1D7852605B187005F0B3C /* Extension+UIcolor.swift in Sources */,
 				A9F1D78D2605BF15005F0B3C /* SignUpViewController.swift in Sources */,
@@ -674,7 +682,7 @@
 				CODE_SIGN_ENTITLEMENTS = TripDiary/TripDiary.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S63RBKT6UQ;
 				INFOPLIST_FILE = TripDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -698,7 +706,7 @@
 				CODE_SIGN_ENTITLEMENTS = TripDiary/TripDiary.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S63RBKT6UQ;
 				INFOPLIST_FILE = TripDiary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

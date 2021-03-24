@@ -14,6 +14,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var pwConfirmTextfield: UITextField!
     
+    lazy var textArray: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +38,9 @@ class SignUpViewController: UIViewController {
         
         if userIdTextField.text != "" && pwTextField.text != "" && pwConfirmTextfield.text != "" {
             if pwTextField.text == pwConfirmTextfield.text {
+                let signupVM = SignUpViewModel()
+                signupVM.requestSignUp(email: userIdTextField.text ?? "" , password: pwConfirmTextfield.text ?? "")
+                
                 
             }else {
                 confirmAlert(title: "알림", message: "비밀번호가 일치하지 않습니다.")
@@ -43,6 +48,10 @@ class SignUpViewController: UIViewController {
         }else{
             confirmAlert(title: "알림", message: "아이디 혹은 비밀번호를 적어주세요")
         }
+        if userIdTextField.text != "" {
+            textArray.append(userIdTextField.text ?? "")
+        }
+        
     }
 }
 

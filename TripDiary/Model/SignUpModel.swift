@@ -7,8 +7,11 @@
 
 import Foundation
 
-struct SignUpModel: Encodable {
+struct SignUpModel: Codable {
     
-    let id: String
+    let email: String
     let password: String
+    let provider: String
+    let token: String
+    let nickname: String
 }

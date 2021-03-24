@@ -65,6 +65,9 @@ class MainViewController: UIViewController, ASAuthorizationControllerPresentatio
             print("User ID : \(userIdentifier)")
             print("User Email : \(email ?? "")")
             print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") else { return }
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
         default:
             break
         }
