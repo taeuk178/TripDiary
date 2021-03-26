@@ -7,6 +7,7 @@
 
 import UIKit
 import AuthenticationServices
+import Security
 
 class MainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
    
@@ -32,8 +33,9 @@ class MainViewController: UIViewController, ASAuthorizationControllerPresentatio
     }
     
     func setAppleAuth() {
-        let authorizationButton = ASAuthorizationAppleIDButton(type: .signIn, style: .whiteOutline)
         
+        //애플 로그인 버튼 생성
+        let authorizationButton = ASAuthorizationAppleIDButton(type: .signIn, style: .whiteOutline)
         authorizationButton.addTarget(self, action: #selector(appleSignInButtonPress), for: .touchUpInside)
         appleLoginButton.addArrangedSubview(authorizationButton)
         
@@ -54,7 +56,7 @@ class MainViewController: UIViewController, ASAuthorizationControllerPresentatio
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
-    
+    // Apple ID 연동 성공 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredetial as ASAuthorizationAppleIDCredential:
@@ -62,17 +64,28 @@ class MainViewController: UIViewController, ASAuthorizationControllerPresentatio
             let fullName = appleIDCredetial.fullName
             let email = appleIDCredetial.email
             
+            if let idData = userIdentifier.data(using: String.Encoding.utf8) {
+                print(Keychain.save(key: "id", data: idData))
+            }
+            if let idData = Keychain.load(key: "id") {
+                if let id = String(data: idData, encoding: .utf8) {
+                    print("id: \(id)")
+                }
+            }
+            // 계정 정보 가져오기
             print("User ID : \(userIdentifier)")
             print("User Email : \(email ?? "")")
             print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
-            guard let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") else { return }
+            
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "Tabbar")
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         default:
             break
         }
     }
-    
+    // Apple ID 연동 실패 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error.localizedDescription)
     }

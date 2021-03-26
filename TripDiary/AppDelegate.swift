@@ -18,19 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        sleep(3)
         
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: "000133.6e349b16f2654beaac79cd7acc289ab7.0605") { (credentialState, error) in
-            switch credentialState {
-            case .authorized:
-                print("ID연동 ok")
-            case .revoked:
-                print("ID연동 X")
-            case .notFound:
-                print("ID X")
-            default:
-                break
+        if let idData = Keychain.load(key: "id") {
+            if let id = String(data: idData, encoding: .utf8) {
+                print("id: \(id)")
+                let appleIDProvider = ASAuthorizationAppleIDProvider()
+                appleIDProvider.getCredentialState(forUserID: id) { (credentialState, error) in
+                    switch credentialState {
+                    case .authorized:
+                        print("ID연동 ok")
+                    case .revoked:
+                        print("ID연동 X")
+                    case .notFound:
+                        print("ID X")
+                    default:
+                        break
+                    }
+                }
             }
         }
+        
         return true
     }
 

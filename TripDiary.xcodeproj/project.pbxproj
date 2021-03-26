@@ -11,6 +11,8 @@
 		1DF700108CA762155257862B /* Pods_TripDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A3EBEC23E418C1DCD1462C /* Pods_TripDiaryTests.framework */; };
 		A97A2B9426088A2C00BC9BF0 /* HTTPEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */; };
 		A97A2B9F260B108100BC9BF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */; };
+		A97A2BA4260B17FB00BC9BF0 /* KeyChainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2BA3260B17FB00BC9BF0 /* KeyChainModel.swift */; };
+		A97A2BB1260D7D7B00BC9BF0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97A2BB0260D7D7B00BC9BF0 /* Home.storyboard */; };
 		A9F1D7372605AB2F005F0B3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7362605AB2F005F0B3C /* AppDelegate.swift */; };
 		A9F1D7392605AB2F005F0B3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D7382605AB2F005F0B3C /* SceneDelegate.swift */; };
 		A9F1D73B2605AB2F005F0B3C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1D73A2605AB2F005F0B3C /* MainViewController.swift */; };
@@ -55,6 +57,8 @@
 		A97A2B7A2608668E00BC9BF0 /* TripDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TripDiary.entitlements; sourceTree = "<group>"; };
 		A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEnum.swift; sourceTree = "<group>"; };
 		A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A97A2BA3260B17FB00BC9BF0 /* KeyChainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainModel.swift; sourceTree = "<group>"; };
+		A97A2BB0260D7D7B00BC9BF0 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A9F1D7332605AB2F005F0B3C /* TripDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F1D7362605AB2F005F0B3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9F1D7382605AB2F005F0B3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +131,14 @@
 				D9A3EBEC23E418C1DCD1462C /* Pods_TripDiaryTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A97A2BAF260D7D5F00BC9BF0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A97A2BB0260D7D7B00BC9BF0 /* Home.storyboard */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		A9F1D72A2605AB2F005F0B3C = {
@@ -225,6 +237,7 @@
 				A9F1D7842605B187005F0B3C /* Extension+UIcolor.swift */,
 				A9F1D7932605DB09005F0B3C /* TextFieldUnderLine.swift */,
 				A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */,
+				A97A2BA3260B17FB00BC9BF0 /* KeyChainModel.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -240,6 +253,7 @@
 		A9F1D7792605AC5D005F0B3C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A97A2BAF260D7D5F00BC9BF0 /* Home */,
 				A9F1D73C2605AB2F005F0B3C /* Main.storyboard */,
 			);
 			path = Main;
@@ -366,6 +380,7 @@
 				A9F1D7432605AB32005F0B3C /* LaunchScreen.storyboard in Resources */,
 				A9F1D7402605AB32005F0B3C /* Assets.xcassets in Resources */,
 				A9F1D73E2605AB2F005F0B3C /* Main.storyboard in Resources */,
+				A97A2BB1260D7D7B00BC9BF0 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +511,7 @@
 				A9F1D73B2605AB2F005F0B3C /* MainViewController.swift in Sources */,
 				A9F1D7992605DBEB005F0B3C /* SignUpModel.swift in Sources */,
 				A9F1D7A926063F0D005F0B3C /* SignUpViewModel.swift in Sources */,
+				A97A2BA4260B17FB00BC9BF0 /* KeyChainModel.swift in Sources */,
 				A9F1D7372605AB2F005F0B3C /* AppDelegate.swift in Sources */,
 				A9F1D7942605DB09005F0B3C /* TextFieldUnderLine.swift in Sources */,
 				A97A2B9F260B108100BC9BF0 /* HomeViewController.swift in Sources */,
