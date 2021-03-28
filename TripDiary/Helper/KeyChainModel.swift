@@ -11,9 +11,9 @@ class Keychain {
     
     static func save(key: String, data: Data) -> Bool {
         let query = [
-            kSecClass as String       : kSecClassGenericPassword as String,
-            kSecAttrAccount as String : key,
-            kSecValueData as String   : data ] as [String : Any]
+            kSecClass        : kSecClassGenericPassword ,
+            kSecAttrAccount  : key,
+            kSecValueData    : data ] as [CFString : Any]
         
         SecItemDelete(query as CFDictionary)
         
@@ -24,10 +24,10 @@ class Keychain {
     
     static func load(key: String) -> Data? {
         let query = [
-            kSecClass as String       : kSecClassGenericPassword,
-            kSecAttrAccount as String : key,
-            kSecReturnData as String  : kCFBooleanTrue as Any,
-            kSecMatchLimit as String  : kSecMatchLimitOne ] as [String : Any]
+            kSecClass        : kSecClassGenericPassword,
+            kSecAttrAccount  : key,
+            kSecReturnData   : kCFBooleanTrue as Any,
+            kSecMatchLimit   : kSecMatchLimitOne ] as [CFString : Any]
         
         var dataTypeRef: AnyObject?
         let status = withUnsafeMutablePointer(to: &dataTypeRef) { SecItemCopyMatching(query as CFDictionary, UnsafeMutablePointer($0)) }
@@ -42,8 +42,8 @@ class Keychain {
     
     static func delete(key: String) -> Bool {
         let query = [
-            kSecClass as String       : kSecClassGenericPassword,
-            kSecAttrAccount as String : key ] as [String : Any]
+            kSecClass        : kSecClassGenericPassword,
+            kSecAttrAccount  : key ] as [CFString : Any]
         
         let status: OSStatus = SecItemDelete(query as CFDictionary)
         

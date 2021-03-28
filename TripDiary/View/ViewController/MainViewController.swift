@@ -5,16 +5,25 @@
 //  Created by taeuk on 2021/03/20.
 //
 
-import UIKit
 import AuthenticationServices
+import Alamofire
+import NaverThirdPartyLogin
 import Security
+import UIKit
 
-class MainViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
-   
-    
 
-    @IBOutlet weak var appleLoginButton: UIStackView!
+class MainViewController: UIViewController {
     
+    
+    @IBOutlet weak var LoginStackView: UIStackView!
+    let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+    
+    private let naverLoginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Naver", for: .normal)
+        button.addTarget(self, action: #selector(naverLogin(_:)), for: .touchUpInside)
+        return button
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,8 +31,10 @@ class MainViewController: UIViewController, ASAuthorizationControllerPresentatio
         
         navigationSetting()
         setAppleAuth()
+        LoginStackView.addArrangedSubview(naverLoginButton)
+        naverLoginInstance?.requestDeleteToken()
     }
-
+    
     func navigationSetting() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -32,13 +43,23 @@ class MainViewController: UIViewController, ASAuthorizationControllerPresentatio
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
+    @objc func naverLogin(_ sender: UIButton) {
+        
+        naverLoginInstance?.delegate = self
+        naverLoginInstance?.requestThirdPartyLogin()
+    }
+    
+}
+
+// Apple Login
+extension MainViewController: ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
+    
     func setAppleAuth() {
         
         //애플 로그인 버튼 생성
         let authorizationButton = ASAuthorizationAppleIDButton(type: .signIn, style: .whiteOutline)
         authorizationButton.addTarget(self, action: #selector(appleSignInButtonPress), for: .touchUpInside)
-        appleLoginButton.addArrangedSubview(authorizationButton)
-        
+        LoginStackView.addArrangedSubview(authorizationButton)
         
     }
     
@@ -64,6 +85,7 @@ class MainViewController: UIViewController, ASAuthorizationControllerPresentatio
             let fullName = appleIDCredetial.fullName
             let email = appleIDCredetial.email
             
+            // "id" 더 상세하게
             if let idData = userIdentifier.data(using: String.Encoding.utf8) {
                 print(Keychain.save(key: "id", data: idData))
             }
@@ -91,3 +113,52 @@ class MainViewController: UIViewController, ASAuthorizationControllerPresentatio
     }
 }
 
+// Naver Login
+extension MainViewController: NaverThirdPartyLoginConnectionDelegate {
+    
+    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        print("Success naver login")
+        getInfo()
+    }
+    
+    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
+        
+    }
+    
+    func oauth20ConnectionDidFinishDeleteToken() {
+        naverLoginInstance?.requestDeleteToken()
+    }
+    
+    //에러처리
+    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
+        
+        print("naver err", error.localizedDescription)
+    }
+    
+    func getInfo() {
+        guard let _ = naverLoginInstance?.isValidAccessTokenExpireTimeNow() else { return }
+        
+        guard let tokenType = naverLoginInstance?.tokenType else { return }
+        guard let accessToken = naverLoginInstance?.accessToken else { return }
+        
+        let urlStr = "https://openapi.naver.com/v1/nid/me"
+        let url = URL(string: urlStr)!
+        
+        let authorization = "\(tokenType) \(accessToken)"
+        
+        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
+        
+        req.responseJSON { response in
+            guard let result = response.value as? [String: Any] else { return }
+            guard let object = result["response"] as? [String: Any] else { return }
+            guard let name = object["name"] as? String else { return }
+            guard let email = object["email"] as? String else { return }
+            guard let id = object["id"] as? String else {return}
+            
+            print(email)
+            print(name)
+            print(id)
+        }
+        
+    }
+}

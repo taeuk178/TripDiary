@@ -8,6 +8,8 @@ target 'TripDiary' do
   # Pods for TripDiary
 
 pod 'Alamofire', '~> 5.2'
+pod 'naveridlogin-sdk-ios'
+
   target 'TripDiaryTests' do
     inherit! :search_paths
     # Pods for testing

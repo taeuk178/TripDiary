@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NaverThirdPartyLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,15 +17,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        self.window = UIWindow(windowScene: windowScene)
-        let homeVC = UIStoryboard(name: "Home", bundle: nil)
-        let vc = homeVC.instantiateViewController(withIdentifier: "Tabbar")
-        self.window?.rootViewController = vc
-        self.window?.makeKeyAndVisible()
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        self.window = UIWindow(windowScene: windowScene)
+//        let homeVC = UIStoryboard(name: "Home", bundle: nil)
+//        let vc = homeVC.instantiateViewController(withIdentifier: "Tabbar")
+//        self.window?.rootViewController = vc
+//        self.window?.makeKeyAndVisible()
         
     }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+      NaverThirdPartyLoginConnection
+        .getSharedInstance()?
+        .receiveAccessToken(URLContexts.first?.url)
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
