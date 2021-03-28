@@ -7,16 +7,21 @@
 
 import AuthenticationServices
 import Alamofire
+import GoogleSignIn
 import NaverThirdPartyLogin
 import Security
 import UIKit
 
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, GIDSignInDelegate {
+    
+    
     
     
     @IBOutlet weak var LoginStackView: UIStackView!
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+    
+    
     
     private let naverLoginButton: UIButton = {
         let button = UIButton(type: .system)
@@ -24,6 +29,9 @@ class MainViewController: UIViewController {
         button.addTarget(self, action: #selector(naverLogin(_:)), for: .touchUpInside)
         return button
     }()
+    
+    var googleButton = GIDSignInButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +41,11 @@ class MainViewController: UIViewController {
         setAppleAuth()
         LoginStackView.addArrangedSubview(naverLoginButton)
         naverLoginInstance?.requestDeleteToken()
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.delegate = self
+        LoginStackView.addArrangedSubview(googleButton)
+        googleButton.style = .standard
     }
     
     func navigationSetting() {
@@ -49,6 +62,33 @@ class MainViewController: UIViewController {
         naverLoginInstance?.requestThirdPartyLogin()
     }
     
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("The user has not signed in before or they have since signed out.")
+            } else {
+                print("\(error.localizedDescription)")
+            }
+            return
+        }
+        
+        // 사용자 정보 가져오기
+        if let userId = user.userID,                  // For client-side use only!
+           let idToken = user.authentication.idToken, // Safe to send to the server
+           let fullName = user.profile.name,
+           let givenName = user.profile.givenName,
+           let familyName = user.profile.familyName,
+           let email = user.profile.email {
+            
+            print("Token : \(idToken)")
+            print("User ID : \(userId)")
+            print("User Email : \(email)")
+            print("User Name : \((fullName))")
+            
+        } else {
+            print("Error : User Data Not Found")
+        }
+    }
 }
 
 // Apple Login

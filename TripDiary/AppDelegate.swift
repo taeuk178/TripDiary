@@ -8,6 +8,7 @@
 import UIKit
 import AuthenticationServices
 import NaverThirdPartyLogin
+import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        
+        // naver
         let instance = NaverThirdPartyLoginConnection.getSharedInstance()
         instance?.isNaverAppOauthEnable = true
         
@@ -51,6 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         instance?.consumerSecret = kConsumerSecret
         instance?.appName = kServiceAppName
         
+        // google
+        GIDSignIn.sharedInstance()?.clientID = "820128999608-0c36a949e93stgel0pfa5t69okrbappi.apps.googleusercontent.com"
+//        GIDSignIn.sharedInstance()?.clientID = "com.googleusercontent.apps.abcdefg820128999608-0c36a949e93stgel0pfa5t69okrbappi"
         
         return true
     }
