@@ -9,6 +9,9 @@ import UIKit
 import AuthenticationServices
 import NaverThirdPartyLogin
 import GoogleSignIn
+import KakaoSDKCommon
+import KakaoSDKAuth
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -56,11 +59,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GIDSignIn.sharedInstance()?.clientID = "820128999608-0c36a949e93stgel0pfa5t69okrbappi.apps.googleusercontent.com"
 //        GIDSignIn.sharedInstance()?.clientID = "com.googleusercontent.apps.abcdefg820128999608-0c36a949e93stgel0pfa5t69okrbappi"
         
+        // kakao
+        KakaoSDKCommon.initSDK(appKey: "5e6ad852f94317e01cfe18dc70458dec")
         return true
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         NaverThirdPartyLoginConnection.getSharedInstance()?.application(app, open: url, options: options)
+        
         return true
       }
     

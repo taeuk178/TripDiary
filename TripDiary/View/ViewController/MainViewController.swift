@@ -11,6 +11,7 @@ import GoogleSignIn
 import NaverThirdPartyLogin
 import Security
 import UIKit
+import KakaoSDKUser
 
 
 class MainViewController: UIViewController, GIDSignInDelegate {
@@ -46,6 +47,18 @@ class MainViewController: UIViewController, GIDSignInDelegate {
         GIDSignIn.sharedInstance()?.delegate = self
         LoginStackView.addArrangedSubview(googleButton)
         googleButton.style = .standard
+        
+        // kakao logout
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("logout() success.")
+            }
+        }
+        
+        
     }
     
     func navigationSetting() {
@@ -58,8 +71,34 @@ class MainViewController: UIViewController, GIDSignInDelegate {
     
     @objc func naverLogin(_ sender: UIButton) {
         
-        naverLoginInstance?.delegate = self
-        naverLoginInstance?.requestThirdPartyLogin()
+        // kakao login
+        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("loginWithKakaoAccount() success.")
+                
+                //do something
+                _ = oauthToken
+            }
+            
+            UserApi.shared.me() {(user, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("me() success.")
+
+                    //do something
+                    let userEmail = user?.kakaoAccount?.email
+                    print(userEmail)
+                }
+            }
+        }
+        
+//        naverLoginInstance?.delegate = self
+//        naverLoginInstance?.requestThirdPartyLogin()
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {

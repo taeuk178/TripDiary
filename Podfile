@@ -10,6 +10,8 @@ target 'TripDiary' do
 pod 'Alamofire', '~> 5.2'
 pod 'naveridlogin-sdk-ios'
 pod 'GoogleSignIn'
+pod 'KakaoSDK'
+
   target 'TripDiaryTests' do
     inherit! :search_paths
     # Pods for testing

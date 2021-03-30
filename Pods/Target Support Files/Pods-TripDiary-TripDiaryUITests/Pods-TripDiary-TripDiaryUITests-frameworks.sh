@@ -179,6 +179,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKAuth/KakaoSDKAuth.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKCommon/KakaoSDKCommon.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKLink/KakaoSDKLink.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKNavi/KakaoSDKNavi.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKStory/KakaoSDKStory.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKTalk/KakaoSDKTalk.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKTemplate/KakaoSDKTemplate.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKUser/KakaoSDKUser.framework"
   install_framework "${PODS_ROOT}/naveridlogin-sdk-ios/NaverThirdPartyLogin.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -186,6 +194,14 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKAuth/KakaoSDKAuth.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKCommon/KakaoSDKCommon.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKLink/KakaoSDKLink.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKNavi/KakaoSDKNavi.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKStory/KakaoSDKStory.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKTalk/KakaoSDKTalk.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKTemplate/KakaoSDKTemplate.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKUser/KakaoSDKUser.framework"
   install_framework "${PODS_ROOT}/naveridlogin-sdk-ios/NaverThirdPartyLogin.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
