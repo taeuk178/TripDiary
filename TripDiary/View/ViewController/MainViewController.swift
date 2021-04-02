@@ -12,7 +12,7 @@ import NaverThirdPartyLogin
 import Security
 import UIKit
 import KakaoSDKUser
-
+import FBSDKLoginKit
 
 class MainViewController: UIViewController, GIDSignInDelegate {
     
@@ -21,7 +21,7 @@ class MainViewController: UIViewController, GIDSignInDelegate {
     
     @IBOutlet weak var LoginStackView: UIStackView!
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
-    
+
     
     
     private let naverLoginButton: UIButton = {
@@ -58,7 +58,22 @@ class MainViewController: UIViewController, GIDSignInDelegate {
             }
         }
         
+        let fbLoginMange = LoginManager()
+        fbLoginMange.logOut()
+        let loginButton = FBLoginButton()
+        loginButton.center = view.center
+        loginButton.delegate = self
+        LoginStackView.addArrangedSubview(loginButton)
         
+        // facebook
+        if let token = AccessToken.current, !token.isExpired {
+
+            
+        }
+        
+        
+        // Swift // // Extend the code sample from 6a. Add Facebook Login to Your Code // Add to your viewDidLoad method: loginButton.permissions = ["public_profile", "email"]
+            
     }
     
     func navigationSetting() {
@@ -239,5 +254,62 @@ extension MainViewController: NaverThirdPartyLoginConnectionDelegate {
             print(id)
         }
         
+    }
+}
+
+// MARK:- LoginButtonDelegate
+extension MainViewController: LoginButtonDelegate {
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        if let error = error {
+            print("Facebook login with error: \(error.localizedDescription)")
+        } else if let result = result {
+            let declinedPermissionSet = result.declinedPermissions
+            let grantedPermissionSet = result.grantedPermissions
+            let isCancelled = result.isCancelled
+            let facebookToken = result.token?.tokenString ?? ""
+
+        }
+        print(result?.token?.tokenString) //YOUR FB TOKEN
+        let req = GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], tokenString: result?.token?.tokenString, version: nil, httpMethod: .get)
+        
+        req.start(completionHandler: { (connection, result, err) -> Void in
+            if(error == nil)
+            {
+                print("result \(String(describing: result))")
+            }
+            else
+            {
+                print("error \(error)")
+            }
+        })
+//        let token = AccessToken.current?.tokenString
+//        let params = ["fields": "first_name, last_name, email"]
+//        let graphRequest = GraphRequest(graphPath: "me", parameters: params, tokenString: token, version: nil, httpMethod: .get)
+//        graphRequest.start { (connection, result, error) in
+//
+//            if let err = error {
+//                print("Facebook graph request error: \(err)")
+//            } else {
+//                print("Facebook graph request successful!")
+//
+//                guard let json = result as? NSDictionary else { return }
+//                if let email = json["email"] as? String {
+//                    print("\(email)")
+//                }
+//                if let firstName = json["first_name"] as? String {
+//                    print("\(firstName)")
+//                }
+//                if let lastName = json["last_name"] as? String {
+//                    print("\(lastName)")
+//                }
+//                if let id = json["id"] as? String {
+//                    print("\(id)")
+//                }
+//            }
+//        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        print("User has logged out Facebook")
     }
 }

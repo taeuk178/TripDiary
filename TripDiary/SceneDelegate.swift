@@ -9,6 +9,7 @@ import UIKit
 import NaverThirdPartyLogin
 import GoogleSignIn
 import KakaoSDKAuth
+import FBSDKCoreKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -37,12 +38,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if scheme.contains("com.googleusercontent.apps") {
             GIDSignIn.sharedInstance().handle(URLContexts.first?.url)
         }
-        if let url = URLContexts.first?.url {
-            if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                _ = AuthController.handleOpenUrl(url: url)
-            }
+        guard let url = URLContexts.first?.url else { return }
+        if (AuthApi.isKakaoTalkLoginUrl(url)) {
+            _ = AuthController.handleOpenUrl(url: url)
         }
-        
+        ApplicationDelegate.shared.application(
+                UIApplication.shared,
+                open: url,
+                sourceApplication: nil,
+                annotation: [UIApplication.OpenURLOptionsKey.annotation]
+            )
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

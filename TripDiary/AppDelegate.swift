@@ -11,7 +11,7 @@ import NaverThirdPartyLogin
 import GoogleSignIn
 import KakaoSDKCommon
 import KakaoSDKAuth
-
+import FBSDKCoreKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -61,6 +61,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // kakao
         KakaoSDKCommon.initSDK(appKey: "5e6ad852f94317e01cfe18dc70458dec")
+        
+        //facebook
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions:
+            launchOptions
+        )
         return true
     }
 

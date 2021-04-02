@@ -11,6 +11,7 @@ pod 'Alamofire', '~> 5.2'
 pod 'naveridlogin-sdk-ios'
 pod 'GoogleSignIn'
 pod 'KakaoSDK'
+pod 'FBSDKLoginKit'
 
   target 'TripDiaryTests' do
     inherit! :search_paths
