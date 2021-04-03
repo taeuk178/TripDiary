@@ -115,7 +115,7 @@ class MainViewController: UIViewController, GIDSignInDelegate {
 //        naverLoginInstance?.delegate = self
 //        naverLoginInstance?.requestThirdPartyLogin()
     }
-    
+    //MARK: Google Login
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
@@ -145,7 +145,7 @@ class MainViewController: UIViewController, GIDSignInDelegate {
     }
 }
 
-// Apple Login
+//MARK: - Apple Login
 extension MainViewController: ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
     
     func setAppleAuth() {
@@ -207,7 +207,7 @@ extension MainViewController: ASAuthorizationControllerPresentationContextProvid
     }
 }
 
-// Naver Login
+//MARK: - Naver Login
 extension MainViewController: NaverThirdPartyLoginConnectionDelegate {
     
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
