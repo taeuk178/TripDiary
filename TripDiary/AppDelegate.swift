@@ -5,13 +5,17 @@
 //  Created by taeuk on 2021/03/20.
 //
 
-import UIKit
 import AuthenticationServices
-import NaverThirdPartyLogin
+import FBSDKCoreKit
 import GoogleSignIn
 import KakaoSDKCommon
 import KakaoSDKAuth
-import FBSDKCoreKit
+import NaverThirdPartyLogin
+import UIKit
+
+
+
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor.naviGreenColor
         
-//        sleep(3)
         
         if let idData = Keychain.load(key: "id") {
             if let id = String(data: idData, encoding: .utf8) {
@@ -44,20 +47,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         // naver
         let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+        // 네이버 앱으로 인증하는 방식을 활성화
         instance?.isNaverAppOauthEnable = true
         
+        // SafariViewController에서 인증하는 방식을 활성화
         instance?.isInAppOauthEnable = true
+        
+        // 인증 화면을 iPhone의 세로 모드에서만 사용하기
         instance?.isOnlyPortraitSupportedInIphone()
         
+        // 네이버 아이디로 로그인하기 설정
+        // 애플리케이션을 등록할 때 입력한 URL Scheme
         instance?.serviceUrlScheme = kServiceAppUrlScheme
-        
+        // 애플리케이션 등록 후 발급받은 클라이언트 아이디
         instance?.consumerKey = kConsumerKey
+        // 애플리케이션 등록 후 발급받은 클라이언트 시크릿
         instance?.consumerSecret = kConsumerSecret
+        // 애플리케이션 이름
         instance?.appName = kServiceAppName
         
         // google
         GIDSignIn.sharedInstance()?.clientID = "820128999608-0c36a949e93stgel0pfa5t69okrbappi.apps.googleusercontent.com"
-//        GIDSignIn.sharedInstance()?.clientID = "com.googleusercontent.apps.abcdefg820128999608-0c36a949e93stgel0pfa5t69okrbappi"
         
         // kakao
         KakaoSDKCommon.initSDK(appKey: "5e6ad852f94317e01cfe18dc70458dec")

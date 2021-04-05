@@ -5,8 +5,9 @@
 //  Created by taeuk on 2021/03/20.
 //
 
-import UIKit
 import Alamofire
+import UIKit
+
 
 class SignUpViewController: UIViewController {
 

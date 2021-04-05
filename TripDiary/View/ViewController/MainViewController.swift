@@ -7,12 +7,14 @@
 
 import AuthenticationServices
 import Alamofire
+import FBSDKLoginKit
 import GoogleSignIn
+import KakaoSDKUser
 import NaverThirdPartyLogin
 import Security
 import UIKit
-import KakaoSDKUser
-import FBSDKLoginKit
+
+
 
 class MainViewController: UIViewController, GIDSignInDelegate {
     
@@ -45,6 +47,7 @@ class MainViewController: UIViewController, GIDSignInDelegate {
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.delegate = self
+        
         LoginStackView.addArrangedSubview(googleButton)
         googleButton.style = .standard
         
@@ -58,8 +61,11 @@ class MainViewController: UIViewController, GIDSignInDelegate {
             }
         }
         
+        //Facebook logOut
         let fbLoginMange = LoginManager()
         fbLoginMange.logOut()
+        
+        //Facebook
         let loginButton = FBLoginButton()
         loginButton.center = view.center
         loginButton.delegate = self
@@ -130,8 +136,6 @@ class MainViewController: UIViewController, GIDSignInDelegate {
         if let userId = user.userID,                  // For client-side use only!
            let idToken = user.authentication.idToken, // Safe to send to the server
            let fullName = user.profile.name,
-           let givenName = user.profile.givenName,
-           let familyName = user.profile.familyName,
            let email = user.profile.email {
             
             print("Token : \(idToken)")
@@ -282,31 +286,6 @@ extension MainViewController: LoginButtonDelegate {
                 print("error \(error)")
             }
         })
-//        let token = AccessToken.current?.tokenString
-//        let params = ["fields": "first_name, last_name, email"]
-//        let graphRequest = GraphRequest(graphPath: "me", parameters: params, tokenString: token, version: nil, httpMethod: .get)
-//        graphRequest.start { (connection, result, error) in
-//
-//            if let err = error {
-//                print("Facebook graph request error: \(err)")
-//            } else {
-//                print("Facebook graph request successful!")
-//
-//                guard let json = result as? NSDictionary else { return }
-//                if let email = json["email"] as? String {
-//                    print("\(email)")
-//                }
-//                if let firstName = json["first_name"] as? String {
-//                    print("\(firstName)")
-//                }
-//                if let lastName = json["last_name"] as? String {
-//                    print("\(lastName)")
-//                }
-//                if let id = json["id"] as? String {
-//                    print("\(id)")
-//                }
-//            }
-//        }
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {

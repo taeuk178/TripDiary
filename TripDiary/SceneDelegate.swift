@@ -5,11 +5,13 @@
 //  Created by taeuk on 2021/03/20.
 //
 
-import UIKit
-import NaverThirdPartyLogin
+
+import FBSDKCoreKit
 import GoogleSignIn
 import KakaoSDKAuth
-import FBSDKCoreKit
+import NaverThirdPartyLogin
+import UIKit
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
