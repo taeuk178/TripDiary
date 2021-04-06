@@ -16,7 +16,7 @@ import UIKit
 
 
 
-class MainViewController: UIViewController, GIDSignInDelegate {
+class MainViewController: UIViewController {
     
     
     
@@ -43,13 +43,23 @@ class MainViewController: UIViewController, GIDSignInDelegate {
         navigationSetting()
         setAppleAuth()
         LoginStackView.addArrangedSubview(naverLoginButton)
+        
+        //naver
         naverLoginInstance?.requestDeleteToken()
         
+        //google
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.delegate = self
         
         LoginStackView.addArrangedSubview(googleButton)
         googleButton.style = .standard
+        
+        
+        //Facebook
+        let loginButton = FBLoginButton()
+        loginButton.center = view.center
+        loginButton.delegate = self
+        LoginStackView.addArrangedSubview(loginButton)
         
         // kakao logout
         UserApi.shared.logout {(error) in
@@ -65,11 +75,7 @@ class MainViewController: UIViewController, GIDSignInDelegate {
         let fbLoginMange = LoginManager()
         fbLoginMange.logOut()
         
-        //Facebook
-        let loginButton = FBLoginButton()
-        loginButton.center = view.center
-        loginButton.delegate = self
-        LoginStackView.addArrangedSubview(loginButton)
+        
         
         // facebook
         if let token = AccessToken.current, !token.isExpired {
@@ -83,6 +89,7 @@ class MainViewController: UIViewController, GIDSignInDelegate {
     }
     
     func navigationSetting() {
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
@@ -121,6 +128,10 @@ class MainViewController: UIViewController, GIDSignInDelegate {
 //        naverLoginInstance?.delegate = self
 //        naverLoginInstance?.requestThirdPartyLogin()
     }
+    
+}
+
+extension MainViewController: GIDSignInDelegate {
     //MARK: Google Login
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
@@ -148,7 +159,6 @@ class MainViewController: UIViewController, GIDSignInDelegate {
         }
     }
 }
-
 //MARK: - Apple Login
 extension MainViewController: ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
     

@@ -33,14 +33,44 @@
                                 <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="d4v-tY-Fc9">
-                                <rect key="frame" x="30" y="506" width="354" height="87"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DdZ-AI-AsB">
+                                <rect key="frame" x="30" y="453.5" width="354" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="WrF-7T-pQz">
+                                        <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="HeE-fM-WWK"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="ZO0-2z-OfX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="249" verticalHuggingPriority="249" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dv-cm-JAU">
+                                        <rect key="frame" x="28" y="0.0" width="326" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Cmu-n0-iLh"/>
+                                        </constraints>
+                                        <string key="text">본 서비스는 여행기의 내용을 회원끼리 
+공유하는 서비스 입니다.</string>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTF_acR" family="NanumSquareOTF_ac" pointSize="16"/>
+                                        <color key="textColor" red="0.87843137250000003" green="0.90588235289999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="열심히 일 한 당신 떠나요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yP-ws-B2t">
+                                <rect key="frame" x="127" y="290.5" width="160.5" height="19"/>
+                                <fontDescription key="fontDescription" name="NanumSquareOTF_acR" family="NanumSquareOTF_ac" pointSize="16"/>
+                                <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d4v-tY-Fc9">
+                                <rect key="frame" x="30" y="329.5" width="354" height="104"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZI-G5-4Nm">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="47"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="47" id="cfb-qo-Tis"/>
+                                            <constraint firstAttribute="height" constant="47" id="cfb-qo-Tis"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NanumSquareOTF_acR" family="NanumSquareOTF_ac" pointSize="20"/>
                                         <state key="normal" title="로그인">
@@ -51,10 +81,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m78-aW-zrg">
-                                        <rect key="frame" x="0.0" y="51" width="354" height="36"/>
+                                        <rect key="frame" x="0.0" y="57" width="354" height="47"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="47" id="2d6-1I-3WR"/>
+                                            <constraint firstAttribute="height" constant="47" id="2d6-1I-3WR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NanumSquareOTF_acR" family="NanumSquareOTF_ac" pointSize="20"/>
                                         <state key="normal" title="회원가입">
@@ -66,45 +96,21 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="WrF-7T-pQz">
-                                <rect key="frame" x="30" y="639" width="20" height="20"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="5qV-Wf-Cx5"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="G1I-Ee-Aa8"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="HbV-fl-Ru8"/>
-                                    <constraint firstAttribute="height" constant="20" id="QLL-n6-0LH"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="열심히 일 한 당신 떠나요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yP-ws-B2t">
-                                <rect key="frame" x="127" y="290.5" width="160.5" height="19"/>
-                                <fontDescription key="fontDescription" name="NanumSquareOTF_acR" family="NanumSquareOTF_ac" pointSize="16"/>
-                                <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="본 서비스는 여행기의 내용을 회원끼리 공유하는 서비스 입니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dv-cm-JAU">
-                                <rect key="frame" x="80" y="638.5" width="303.5" height="37.5"/>
-                                <fontDescription key="fontDescription" name="NanumSquareOTF_acR" family="NanumSquareOTF_ac" pointSize="16"/>
-                                <color key="textColor" red="0.87843137250000003" green="0.90588235289999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PCv-O5-8LI"/>
                         <color key="backgroundColor" red="0.38124597069999999" green="0.75631505249999997" blue="0.48623335359999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ZVj-ay-5tV" firstAttribute="top" secondItem="Dto-PD-Yra" secondAttribute="topMargin" constant="100" id="05c-GW-NfZ"/>
+                            <constraint firstItem="PCv-O5-8LI" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DdZ-AI-AsB" secondAttribute="bottom" constant="30" id="3nR-Gw-FPN"/>
                             <constraint firstItem="ZVj-ay-5tV" firstAttribute="centerX" secondItem="Dto-PD-Yra" secondAttribute="centerX" id="5gV-iU-a6a"/>
+                            <constraint firstItem="DdZ-AI-AsB" firstAttribute="top" secondItem="d4v-tY-Fc9" secondAttribute="bottom" constant="20" id="7zq-Gz-zpO"/>
                             <constraint firstItem="3yP-ws-B2t" firstAttribute="centerX" secondItem="Dto-PD-Yra" secondAttribute="centerX" id="Afn-zF-OKB"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="d4v-tY-Fc9" secondAttribute="bottom" constant="269" id="FBr-un-faA"/>
-                            <constraint firstItem="d4v-tY-Fc9" firstAttribute="centerX" secondItem="Dto-PD-Yra" secondAttribute="centerX" id="GsC-Ax-4ZZ"/>
-                            <constraint firstItem="WrF-7T-pQz" firstAttribute="leading" secondItem="PCv-O5-8LI" secondAttribute="leading" constant="30" id="J6a-Wl-7sV"/>
-                            <constraint firstItem="9Dv-cm-JAU" firstAttribute="leading" secondItem="WrF-7T-pQz" secondAttribute="trailing" constant="30" id="Lv8-9Z-HMx"/>
-                            <constraint firstItem="d4v-tY-Fc9" firstAttribute="leading" secondItem="PCv-O5-8LI" secondAttribute="leading" constant="30" id="VA6-3J-QzU"/>
+                            <constraint firstItem="d4v-tY-Fc9" firstAttribute="top" secondItem="3yP-ws-B2t" secondAttribute="bottom" constant="20" id="IXK-YQ-bAm"/>
+                            <constraint firstItem="d4v-tY-Fc9" firstAttribute="leading" secondItem="PCv-O5-8LI" secondAttribute="leading" constant="30" id="Qtv-4C-8xg"/>
+                            <constraint firstItem="PCv-O5-8LI" firstAttribute="trailing" secondItem="d4v-tY-Fc9" secondAttribute="trailing" constant="30" id="YpE-ha-Y7J"/>
                             <constraint firstItem="3yP-ws-B2t" firstAttribute="top" secondItem="ZVj-ay-5tV" secondAttribute="bottom" constant="3" id="c9a-zN-WjN"/>
-                            <constraint firstItem="WrF-7T-pQz" firstAttribute="top" secondItem="d4v-tY-Fc9" secondAttribute="bottom" constant="46" id="ede-qM-Sor"/>
-                            <constraint firstItem="PCv-O5-8LI" firstAttribute="trailing" secondItem="d4v-tY-Fc9" secondAttribute="trailing" constant="30" id="euC-ka-IoK"/>
-                            <constraint firstItem="9Dv-cm-JAU" firstAttribute="top" secondItem="d4v-tY-Fc9" secondAttribute="bottom" constant="45.5" id="fUX-bU-xms"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Dv-cm-JAU" secondAttribute="trailing" constant="30" id="yuc-kl-aBJ"/>
+                            <constraint firstAttribute="trailing" secondItem="DdZ-AI-AsB" secondAttribute="trailing" constant="30" id="hum-ZK-AQ8"/>
+                            <constraint firstItem="DdZ-AI-AsB" firstAttribute="leading" secondItem="PCv-O5-8LI" secondAttribute="leading" constant="30" id="rDp-or-SKt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UDn-XY-w91"/>
