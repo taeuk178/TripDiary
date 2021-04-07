@@ -19,12 +19,10 @@ import UIKit
 class MainViewController: UIViewController {
     
     
-    
+    //MARK: - Properties
     
     @IBOutlet weak var LoginStackView: UIStackView!
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
-
-    
     
     private let naverLoginButton: UIButton = {
         let button = UIButton(type: .system)
@@ -33,7 +31,16 @@ class MainViewController: UIViewController {
         return button
     }()
     
+    private let kakaoLoginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Kakao", for: .normal)
+        button.addTarget(self, action: #selector(kakaoLogin(_:)), for: .touchUpInside)
+        return button
+    }()
+    
     var googleButton = GIDSignInButton()
+    
+    //MARK: - override
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +49,8 @@ class MainViewController: UIViewController {
         
         navigationSetting()
         setAppleAuth()
-        LoginStackView.addArrangedSubview(naverLoginButton)
+        
+        
         
         //naver
         naverLoginInstance?.requestDeleteToken()
@@ -50,8 +58,6 @@ class MainViewController: UIViewController {
         //google
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.delegate = self
-        
-        LoginStackView.addArrangedSubview(googleButton)
         googleButton.style = .standard
         
         
@@ -59,7 +65,14 @@ class MainViewController: UIViewController {
         let loginButton = FBLoginButton()
         loginButton.center = view.center
         loginButton.delegate = self
+
+        
+        LoginStackView.addArrangedSubview(naverLoginButton)
+        LoginStackView.addArrangedSubview(googleButton)
         LoginStackView.addArrangedSubview(loginButton)
+        
+        
+                
         
         // kakao logout
         UserApi.shared.logout {(error) in
@@ -83,7 +96,6 @@ class MainViewController: UIViewController {
             
         }
         
-        
         // Swift // // Extend the code sample from 6a. Add Facebook Login to Your Code // Add to your viewDidLoad method: loginButton.permissions = ["public_profile", "email"]
             
     }
@@ -97,8 +109,7 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
-    @objc func naverLogin(_ sender: UIButton) {
-        
+    @objc func kakaoLogin(_ sender: UIButton) {
         // kakao login
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
             if let error = error {
@@ -106,7 +117,7 @@ class MainViewController: UIViewController {
             }
             else {
                 print("loginWithKakaoAccount() success.")
-                
+                self.mainViewPresenter()
                 //do something
                 _ = oauthToken
             }
@@ -119,21 +130,37 @@ class MainViewController: UIViewController {
                     print("me() success.")
 
                     //do something
-                    let userEmail = user?.kakaoAccount?.email
+                    guard let userEmail = user?.kakaoAccount?.email else { return }
                     print(userEmail)
                 }
             }
         }
-        
-//        naverLoginInstance?.delegate = self
-//        naverLoginInstance?.requestThirdPartyLogin()
     }
     
+    @objc func naverLogin(_ sender: UIButton) {
+        
+        
+        naverLoginInstance?.delegate = self
+        naverLoginInstance?.requestThirdPartyLogin()
+        mainViewPresenter()
+    }
+    
+    func mainViewPresenter() {
+        
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "Tabbar")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+        
+    }
 }
 
+//MARK: Google Login
+
 extension MainViewController: GIDSignInDelegate {
-    //MARK: Google Login
+
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
         if let error = error {
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
                 print("The user has not signed in before or they have since signed out.")
@@ -153,12 +180,14 @@ extension MainViewController: GIDSignInDelegate {
             print("User ID : \(userId)")
             print("User Email : \(email)")
             print("User Name : \((fullName))")
+            self.mainViewPresenter()
             
         } else {
             print("Error : User Data Not Found")
         }
     }
 }
+
 //MARK: - Apple Login
 extension MainViewController: ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
     
@@ -185,8 +214,10 @@ extension MainViewController: ASAuthorizationControllerPresentationContextProvid
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
+    
     // Apple ID 연동 성공 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
         switch authorization.credential {
         case let appleIDCredetial as ASAuthorizationAppleIDCredential:
             let userIdentifier = appleIDCredetial.user
@@ -207,14 +238,13 @@ extension MainViewController: ASAuthorizationControllerPresentationContextProvid
             print("User Email : \(email ?? "")")
             print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
             
-            let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "Tabbar")
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
+            mainViewPresenter()
+            
         default:
             break
         }
     }
+    
     // Apple ID 연동 실패 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error.localizedDescription)
@@ -244,6 +274,7 @@ extension MainViewController: NaverThirdPartyLoginConnectionDelegate {
     }
     
     func getInfo() {
+        
         guard let _ = naverLoginInstance?.isValidAccessTokenExpireTimeNow() else { return }
         
         guard let tokenType = naverLoginInstance?.tokenType else { return }
@@ -266,6 +297,8 @@ extension MainViewController: NaverThirdPartyLoginConnectionDelegate {
             print(email)
             print(name)
             print(id)
+            
+            self.mainViewPresenter()
         }
         
     }
@@ -273,6 +306,7 @@ extension MainViewController: NaverThirdPartyLoginConnectionDelegate {
 
 // MARK:- LoginButtonDelegate
 extension MainViewController: LoginButtonDelegate {
+    
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         if let error = error {
             print("Facebook login with error: \(error.localizedDescription)")
@@ -289,11 +323,12 @@ extension MainViewController: LoginButtonDelegate {
         req.start(completionHandler: { (connection, result, err) -> Void in
             if(error == nil)
             {
+                self.mainViewPresenter()
                 print("result \(String(describing: result))")
             }
             else
             {
-                print("error \(error)")
+                print("error \(error?.localizedDescription)")
             }
         })
     }
