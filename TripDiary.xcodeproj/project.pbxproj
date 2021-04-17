@@ -10,6 +10,8 @@
 		1AE47CD71EC20FB62AC46BCA /* Pods_TripDiary_TripDiaryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFEDF8DC9316E63D6A17C5F /* Pods_TripDiary_TripDiaryUITests.framework */; };
 		1DF700108CA762155257862B /* Pods_TripDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A3EBEC23E418C1DCD1462C /* Pods_TripDiaryTests.framework */; };
 		A9340B5F26271A0100D78496 /* LoginAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9340B5E26271A0100D78496 /* LoginAPIManager.swift */; };
+		A947F6AB262B223E001C4814 /* HomeAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947F6AA262B223E001C4814 /* HomeAPIManager.swift */; };
+		A947F6B3262B24BF001C4814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947F6B2262B24BF001C4814 /* Constants.swift */; };
 		A94D51A9262A9DF30063C2C3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51A8262A9DF30063C2C3 /* LoginViewModel.swift */; };
 		A94D51AE262AA9FE0063C2C3 /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51AD262AA9FE0063C2C3 /* LoginDelegate.swift */; };
 		A94D51B3262ACA960063C2C3 /* SIgnInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51B2262ACA960063C2C3 /* SIgnInViewController.swift */; };
@@ -62,6 +64,8 @@
 		929A1AFCA8C1FA332BEE1E40 /* Pods-TripDiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiaryTests.release.xcconfig"; path = "Target Support Files/Pods-TripDiaryTests/Pods-TripDiaryTests.release.xcconfig"; sourceTree = "<group>"; };
 		A26878E8C5C1D9F7CFDD0564 /* Pods-TripDiary-TripDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiary-TripDiaryUITests.release.xcconfig"; path = "Target Support Files/Pods-TripDiary-TripDiaryUITests/Pods-TripDiary-TripDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A9340B5E26271A0100D78496 /* LoginAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIManager.swift; sourceTree = "<group>"; };
+		A947F6AA262B223E001C4814 /* HomeAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIManager.swift; sourceTree = "<group>"; };
+		A947F6B2262B24BF001C4814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A94D51A8262A9DF30063C2C3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A94D51AD262AA9FE0063C2C3 /* LoginDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
 		A94D51B2262ACA960063C2C3 /* SIgnInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,14 @@
 				A9340B5E26271A0100D78496 /* LoginAPIManager.swift */,
 			);
 			path = AccountAPI;
+			sourceTree = "<group>";
+		};
+		A947F6A9262B222B001C4814 /* HomeAPI */ = {
+			isa = PBXGroup;
+			children = (
+				A947F6AA262B223E001C4814 /* HomeAPIManager.swift */,
+			);
+			path = HomeAPI;
 			sourceTree = "<group>";
 		};
 		A94D51C5262ACE580063C2C3 /* Account */ = {
@@ -269,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				A9340B5D262719ED00D78496 /* AccountAPI */,
+				A947F6A9262B222B001C4814 /* HomeAPI */,
+				A947F6B2262B24BF001C4814 /* Constants.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -615,6 +629,7 @@
 			files = (
 				A9F1D73B2605AB2F005F0B3C /* MainViewController.swift in Sources */,
 				A9F1D7992605DBEB005F0B3C /* SignUpModel.swift in Sources */,
+				A947F6AB262B223E001C4814 /* HomeAPIManager.swift in Sources */,
 				A94D51AE262AA9FE0063C2C3 /* LoginDelegate.swift in Sources */,
 				A99DB866260EF66B00E8CCD1 /* HomeDataModel.swift in Sources */,
 				A9F1D7A926063F0D005F0B3C /* SignUpViewModel.swift in Sources */,
@@ -627,6 +642,7 @@
 				A94D51A9262A9DF30063C2C3 /* LoginViewModel.swift in Sources */,
 				A97A2B9426088A2C00BC9BF0 /* HTTPEnum.swift in Sources */,
 				A9F1D7392605AB2F005F0B3C /* SceneDelegate.swift in Sources */,
+				A947F6B3262B24BF001C4814 /* Constants.swift in Sources */,
 				A9340B5F26271A0100D78496 /* LoginAPIManager.swift in Sources */,
 				A9F1D7852605B187005F0B3C /* Extension+UIcolor.swift in Sources */,
 				A9F1D78D2605BF15005F0B3C /* SignUpViewController.swift in Sources */,
