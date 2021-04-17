@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		1AE47CD71EC20FB62AC46BCA /* Pods_TripDiary_TripDiaryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFEDF8DC9316E63D6A17C5F /* Pods_TripDiary_TripDiaryUITests.framework */; };
 		1DF700108CA762155257862B /* Pods_TripDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A3EBEC23E418C1DCD1462C /* Pods_TripDiaryTests.framework */; };
-		A9340B5F26271A0100D78496 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9340B5E26271A0100D78496 /* SignUpAPI.swift */; };
+		A9340B5F26271A0100D78496 /* LoginAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9340B5E26271A0100D78496 /* LoginAPIManager.swift */; };
 		A94D51A9262A9DF30063C2C3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51A8262A9DF30063C2C3 /* LoginViewModel.swift */; };
 		A94D51AE262AA9FE0063C2C3 /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51AD262AA9FE0063C2C3 /* LoginDelegate.swift */; };
+		A94D51B3262ACA960063C2C3 /* SIgnInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51B2262ACA960063C2C3 /* SIgnInViewController.swift */; };
+		A94D51B8262ACAC60063C2C3 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51B7262ACAC60063C2C3 /* SignInModel.swift */; };
 		A97A2B9426088A2C00BC9BF0 /* HTTPEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */; };
 		A97A2B9F260B108100BC9BF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */; };
 		A97A2BA4260B17FB00BC9BF0 /* KeyChainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2BA3260B17FB00BC9BF0 /* KeyChainModel.swift */; };
@@ -59,9 +61,11 @@
 		78869E5F6E26028AFAF0BFF7 /* Pods-TripDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiary.release.xcconfig"; path = "Target Support Files/Pods-TripDiary/Pods-TripDiary.release.xcconfig"; sourceTree = "<group>"; };
 		929A1AFCA8C1FA332BEE1E40 /* Pods-TripDiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiaryTests.release.xcconfig"; path = "Target Support Files/Pods-TripDiaryTests/Pods-TripDiaryTests.release.xcconfig"; sourceTree = "<group>"; };
 		A26878E8C5C1D9F7CFDD0564 /* Pods-TripDiary-TripDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiary-TripDiaryUITests.release.xcconfig"; path = "Target Support Files/Pods-TripDiary-TripDiaryUITests/Pods-TripDiary-TripDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
-		A9340B5E26271A0100D78496 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
+		A9340B5E26271A0100D78496 /* LoginAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIManager.swift; sourceTree = "<group>"; };
 		A94D51A8262A9DF30063C2C3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A94D51AD262AA9FE0063C2C3 /* LoginDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
+		A94D51B2262ACA960063C2C3 /* SIgnInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInViewController.swift; sourceTree = "<group>"; };
+		A94D51B7262ACAC60063C2C3 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		A97A2B7A2608668E00BC9BF0 /* TripDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TripDiary.entitlements; sourceTree = "<group>"; };
 		A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEnum.swift; sourceTree = "<group>"; };
 		A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -146,9 +150,26 @@
 		A9340B5D262719ED00D78496 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				A9340B5E26271A0100D78496 /* SignUpAPI.swift */,
+				A9340B5E26271A0100D78496 /* LoginAPIManager.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		A94D51C5262ACE580063C2C3 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				A9F1D73A2605AB2F005F0B3C /* MainViewController.swift */,
+				A9F1D78C2605BF15005F0B3C /* SignUpViewController.swift */,
+				A94D51B2262ACA960063C2C3 /* SIgnInViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		A94D51C6262ACE750063C2C3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		A97A2BAF260D7D5F00BC9BF0 /* Home */ = {
@@ -228,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F1D7982605DBEB005F0B3C /* SignUpModel.swift */,
+				A94D51B7262ACAC60063C2C3 /* SignInModel.swift */,
 				A99DB865260EF66B00E8CCD1 /* HomeDataModel.swift */,
 			);
 			path = Model;
@@ -284,8 +306,8 @@
 		A9F1D77A2605ACAB005F0B3C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A9F1D73A2605AB2F005F0B3C /* MainViewController.swift */,
-				A9F1D78C2605BF15005F0B3C /* SignUpViewController.swift */,
+				A94D51C6262ACE750063C2C3 /* Home */,
+				A94D51C5262ACE580063C2C3 /* Account */,
 				A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */,
 				A99DB86A260F050600E8CCD1 /* HomeDetailViewController.swift */,
 			);
@@ -572,14 +594,16 @@
 				A94D51AE262AA9FE0063C2C3 /* LoginDelegate.swift in Sources */,
 				A99DB866260EF66B00E8CCD1 /* HomeDataModel.swift in Sources */,
 				A9F1D7A926063F0D005F0B3C /* SignUpViewModel.swift in Sources */,
+				A94D51B8262ACAC60063C2C3 /* SignInModel.swift in Sources */,
 				A97A2BA4260B17FB00BC9BF0 /* KeyChainModel.swift in Sources */,
 				A9F1D7372605AB2F005F0B3C /* AppDelegate.swift in Sources */,
+				A94D51B3262ACA960063C2C3 /* SIgnInViewController.swift in Sources */,
 				A9F1D7942605DB09005F0B3C /* TextFieldUnderLine.swift in Sources */,
 				A97A2B9F260B108100BC9BF0 /* HomeViewController.swift in Sources */,
 				A94D51A9262A9DF30063C2C3 /* LoginViewModel.swift in Sources */,
 				A97A2B9426088A2C00BC9BF0 /* HTTPEnum.swift in Sources */,
 				A9F1D7392605AB2F005F0B3C /* SceneDelegate.swift in Sources */,
-				A9340B5F26271A0100D78496 /* SignUpAPI.swift in Sources */,
+				A9340B5F26271A0100D78496 /* LoginAPIManager.swift in Sources */,
 				A9F1D7852605B187005F0B3C /* Extension+UIcolor.swift in Sources */,
 				A9F1D78D2605BF15005F0B3C /* SignUpViewController.swift in Sources */,
 				A99DB86B260F050600E8CCD1 /* HomeDetailViewController.swift in Sources */,

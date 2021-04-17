@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="1068.1159420289855" y="138.61607142857142"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Ign In View Controller-->
         <scene sceneID="kgn-fa-a3S">
             <objects>
-                <viewController storyboardIdentifier="Login" id="lgx-Ms-wfh" customClass="LoginViewController" customModule="TripDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="lgx-Ms-wfh" customClass="SIgnInViewController" customModule="TripDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="syj-tU-iuJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,6 +228,9 @@
                                 <state key="normal" title="확인">
                                     <color key="titleColor" red="0.32156862749999998" green="0.71372549019999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButton:" destination="lgx-Ms-wfh" eventType="touchUpInside" id="cU1-yR-l6q"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="올바른 아이디를 입력하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRr-c3-O8O" userLabel="WrongIdLabel">
                                 <rect key="frame" x="30" y="323" width="144" height="25"/>
@@ -269,6 +272,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sYj-Va-u5A"/>
+                    <connections>
+                        <outlet property="emailTextfield" destination="qlM-7l-LMC" id="Mmj-a9-gfM"/>
+                        <outlet property="passwordTextfield" destination="Zgk-Yg-MaK" id="Kqz-QY-UX8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAm-9y-0bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

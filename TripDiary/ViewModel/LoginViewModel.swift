@@ -20,7 +20,7 @@ class LoginViewModel: NSObject {
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
     
     
-    func kakaoLogin(complition: @escaping () -> ()) {
+    func kakaoLogin(completion: @escaping () -> ()) {
         
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
             if let error = error {
@@ -34,7 +34,7 @@ class LoginViewModel: NSObject {
                     }
                     else {
                         print("kakao, me() success.")
-                        complition()
+                        completion()
                         //do something
                         guard let userEmail = user?.kakaoAccount?.email else { return }
                         print(userEmail)

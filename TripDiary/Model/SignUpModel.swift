@@ -20,7 +20,7 @@ struct SignUpModel: Codable {
 struct GetSignUpModel: Codable {
     
     let success: Bool
-    let data: GetSignUpDataModel
+    let data: GetSignUpDataModel?
     let message: String
 }
 // 데이터의 데이터모델
