@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         
         //google
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance()?.delegate = self
+        GIDSignIn.sharedInstance()?.delegate = loginVM
         googleButton.style = .standard
         
         
@@ -72,8 +72,6 @@ class MainViewController: UIViewController {
         LoginStackView.addArrangedSubview(kakaoLoginButton)
         LoginStackView.addArrangedSubview(googleButton)
         LoginStackView.addArrangedSubview(faceBookLoginButton)
-        
-        
                 
         
         // kakao logout
@@ -97,8 +95,6 @@ class MainViewController: UIViewController {
 
             
         }
-        
-        // Swift // // Extend the code sample from 6a. Add Facebook Login to Your Code // Add to your viewDidLoad method: loginButton.permissions = ["public_profile", "email"]
             
     }
     
@@ -120,14 +116,16 @@ class MainViewController: UIViewController {
         }
     }
     
+    // MARK: - naver login
+    
     @objc func naverLogin(_ sender: UIButton) {
-        
         
         naverLoginInstance?.delegate = loginVM
         naverLoginInstance?.requestThirdPartyLogin()
         
     }
     
+    // 로그인 성공시 메인화면 넘어가는 메소드
     func mainViewPresenter() {
         
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
@@ -135,39 +133,6 @@ class MainViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
         
-    }
-}
-
-//MARK: Google Login
-
-extension MainViewController: GIDSignInDelegate {
-
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
-        if let error = error {
-            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
-                print("The user has not signed in before or they have since signed out.")
-            } else {
-                print("\(error.localizedDescription)")
-            }
-            return
-        }
-        
-        // 사용자 정보 가져오기
-        if let userId = user.userID,                  // For client-side use only!
-           let idToken = user.authentication.idToken, // Safe to send to the server
-           let fullName = user.profile.name,
-           let email = user.profile.email {
-            
-            print("Token : \(idToken)")
-            print("User ID : \(userId)")
-            print("User Email : \(email)")
-            print("User Name : \((fullName))")
-            self.mainViewPresenter()
-            
-        } else {
-            print("Error : User Data Not Found")
-        }
     }
 }
 

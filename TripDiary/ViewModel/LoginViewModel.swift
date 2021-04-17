@@ -100,3 +100,34 @@ extension LoginViewModel: NaverThirdPartyLoginConnectionDelegate {
         }
     }
 }
+
+extension LoginViewModel: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        if let error = error {
+            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("The user has not signed in before or they have since signed out.")
+            } else {
+                print("\(error.localizedDescription)")
+            }
+            return
+        }
+        
+        // 사용자 정보 가져오기
+        if let userId = user.userID,                  // For client-side use only!
+           let idToken = user.authentication.idToken, // Safe to send to the server
+           let fullName = user.profile.name,
+           let email = user.profile.email {
+            
+            print("Token : \(idToken)")
+            print("User ID : \(userId)")
+            print("User Email : \(email)")
+            print("User Name : \((fullName))")
+            
+            delegate?.loginSuccess()
+            
+        } else {
+            print("Error : User Data Not Found")
+        }
+    }
+}
