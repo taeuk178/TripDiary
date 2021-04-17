@@ -147,12 +147,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A9340B5D262719ED00D78496 /* SignUp */ = {
+		A9340B5D262719ED00D78496 /* AccountAPI */ = {
 			isa = PBXGroup;
 			children = (
 				A9340B5E26271A0100D78496 /* LoginAPIManager.swift */,
 			);
-			path = SignUp;
+			path = AccountAPI;
 			sourceTree = "<group>";
 		};
 		A94D51C5262ACE580063C2C3 /* Account */ = {
@@ -168,8 +168,36 @@
 		A94D51C6262ACE750063C2C3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */,
+				A99DB86A260F050600E8CCD1 /* HomeDetailViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A94D51C7262ACED70063C2C3 /* AccountModel */ = {
+			isa = PBXGroup;
+			children = (
+				A9F1D7982605DBEB005F0B3C /* SignUpModel.swift */,
+				A94D51B7262ACAC60063C2C3 /* SignInModel.swift */,
+			);
+			path = AccountModel;
+			sourceTree = "<group>";
+		};
+		A94D51C8262ACEE20063C2C3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A99DB865260EF66B00E8CCD1 /* HomeDataModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A94D51C9262ACEF00063C2C3 /* AccountVM */ = {
+			isa = PBXGroup;
+			children = (
+				A9F1D7A826063F0D005F0B3C /* SignUpViewModel.swift */,
+				A94D51A8262A9DF30063C2C3 /* LoginViewModel.swift */,
+			);
+			path = AccountVM;
 			sourceTree = "<group>";
 		};
 		A97A2BAF260D7D5F00BC9BF0 /* Home */ = {
@@ -240,7 +268,7 @@
 		A9F1D7722605ABA7005F0B3C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				A9340B5D262719ED00D78496 /* SignUp */,
+				A9340B5D262719ED00D78496 /* AccountAPI */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -248,9 +276,8 @@
 		A9F1D7742605ABBE005F0B3C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A9F1D7982605DBEB005F0B3C /* SignUpModel.swift */,
-				A94D51B7262ACAC60063C2C3 /* SignInModel.swift */,
-				A99DB865260EF66B00E8CCD1 /* HomeDataModel.swift */,
+				A94D51C7262ACED70063C2C3 /* AccountModel */,
+				A94D51C8262ACEE20063C2C3 /* Home */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,8 +285,7 @@
 		A9F1D7752605ABC3005F0B3C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A9F1D7A826063F0D005F0B3C /* SignUpViewModel.swift */,
-				A94D51A8262A9DF30063C2C3 /* LoginViewModel.swift */,
+				A94D51C9262ACEF00063C2C3 /* AccountVM */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -306,10 +332,8 @@
 		A9F1D77A2605ACAB005F0B3C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A94D51C6262ACE750063C2C3 /* Home */,
 				A94D51C5262ACE580063C2C3 /* Account */,
-				A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */,
-				A99DB86A260F050600E8CCD1 /* HomeDetailViewController.swift */,
+				A94D51C6262ACE750063C2C3 /* Home */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
