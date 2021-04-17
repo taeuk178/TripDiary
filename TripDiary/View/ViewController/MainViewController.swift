@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
         navigationSetting()
         setAppleAuth()
         
-        
+        loginVM.delegate = self
         
         //naver
         naverLoginInstance?.requestDeleteToken()
@@ -119,16 +119,11 @@ class MainViewController: UIViewController {
             self.mainViewPresenter()
         }
     }
-    /*
-     로그인 한다. kakaoLogin 실행
-     성공시 유저정보를 받아옴
-     파라미터에 옮겨 로그인 실행
-     
-     */
+    
     @objc func naverLogin(_ sender: UIButton) {
         
         
-        naverLoginInstance?.delegate = self
+        naverLoginInstance?.delegate = loginVM
         naverLoginInstance?.requestThirdPartyLogin()
         
     }
@@ -239,58 +234,6 @@ extension MainViewController: ASAuthorizationControllerPresentationContextProvid
     }
 }
 
-//MARK: - Naver Login
-extension MainViewController: NaverThirdPartyLoginConnectionDelegate {
-    
-    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
-        print("Success naver login")
-        getInfo()
-    }
-    
-    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
-        
-    }
-    
-    func oauth20ConnectionDidFinishDeleteToken() {
-        naverLoginInstance?.requestDeleteToken()
-    }
-    
-    //에러처리
-    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
-        
-        print("naver err", error.localizedDescription)
-    }
-    
-    func getInfo() {
-        
-        guard let _ = naverLoginInstance?.isValidAccessTokenExpireTimeNow() else { return }
-        
-        guard let tokenType = naverLoginInstance?.tokenType else { return }
-        guard let accessToken = naverLoginInstance?.accessToken else { return }
-        
-        let urlStr = "https://openapi.naver.com/v1/nid/me"
-        let url = URL(string: urlStr)!
-        
-        let authorization = "\(tokenType) \(accessToken)"
-        
-        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
-        
-        req.responseJSON { response in
-            guard let result = response.value as? [String: Any] else { return }
-            guard let object = result["response"] as? [String: Any] else { return }
-            guard let name = object["name"] as? String else { return }
-            guard let email = object["email"] as? String else { return }
-            guard let id = object["id"] as? String else {return}
-            
-            print(email)
-            print(name)
-            print(id)
-            
-            self.mainViewPresenter()
-        }
-        
-    }
-}
 
 // MARK:- LoginButtonDelegate
 extension MainViewController: LoginButtonDelegate {
@@ -324,4 +267,16 @@ extension MainViewController: LoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         print("User has logged out Facebook")
     }
+}
+
+extension MainViewController: LoginDelegate {
+    func loginSuccess() {
+        self.mainViewPresenter()
+    }
+    
+    func loginFailed(err: String) {
+        print(err)
+    }
+    
+    
 }

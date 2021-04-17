@@ -11,6 +11,7 @@
 		1DF700108CA762155257862B /* Pods_TripDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A3EBEC23E418C1DCD1462C /* Pods_TripDiaryTests.framework */; };
 		A9340B5F26271A0100D78496 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9340B5E26271A0100D78496 /* SignUpAPI.swift */; };
 		A94D51A9262A9DF30063C2C3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51A8262A9DF30063C2C3 /* LoginViewModel.swift */; };
+		A94D51AE262AA9FE0063C2C3 /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51AD262AA9FE0063C2C3 /* LoginDelegate.swift */; };
 		A97A2B9426088A2C00BC9BF0 /* HTTPEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */; };
 		A97A2B9F260B108100BC9BF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */; };
 		A97A2BA4260B17FB00BC9BF0 /* KeyChainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A2BA3260B17FB00BC9BF0 /* KeyChainModel.swift */; };
@@ -60,6 +61,7 @@
 		A26878E8C5C1D9F7CFDD0564 /* Pods-TripDiary-TripDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripDiary-TripDiaryUITests.release.xcconfig"; path = "Target Support Files/Pods-TripDiary-TripDiaryUITests/Pods-TripDiary-TripDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A9340B5E26271A0100D78496 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
 		A94D51A8262A9DF30063C2C3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A94D51AD262AA9FE0063C2C3 /* LoginDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
 		A97A2B7A2608668E00BC9BF0 /* TripDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TripDiary.entitlements; sourceTree = "<group>"; };
 		A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEnum.swift; sourceTree = "<group>"; };
 		A97A2B9E260B108100BC9BF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				A9F1D7932605DB09005F0B3C /* TextFieldUnderLine.swift */,
 				A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */,
 				A97A2BA3260B17FB00BC9BF0 /* KeyChainModel.swift */,
+				A94D51AD262AA9FE0063C2C3 /* LoginDelegate.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 			files = (
 				A9F1D73B2605AB2F005F0B3C /* MainViewController.swift in Sources */,
 				A9F1D7992605DBEB005F0B3C /* SignUpModel.swift in Sources */,
+				A94D51AE262AA9FE0063C2C3 /* LoginDelegate.swift in Sources */,
 				A99DB866260EF66B00E8CCD1 /* HomeDataModel.swift in Sources */,
 				A9F1D7A926063F0D005F0B3C /* SignUpViewModel.swift in Sources */,
 				A97A2BA4260B17FB00BC9BF0 /* KeyChainModel.swift in Sources */,

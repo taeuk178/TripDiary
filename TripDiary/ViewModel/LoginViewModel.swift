@@ -14,7 +14,10 @@ import NaverThirdPartyLogin
 import Security
 import UIKit
 
-class LoginViewModel {
+class LoginViewModel: NSObject {
+    
+    weak var delegate: LoginDelegate?
+    let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
     
     
     func kakaoLogin(complition: @escaping () -> ()) {
@@ -38,6 +41,62 @@ class LoginViewModel {
                     }
                 }
             }
+        }
+    }
+    
+    
+}
+
+extension LoginViewModel: NaverThirdPartyLoginConnectionDelegate {
+    
+    // 로그인 성공
+    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        print("naver, Success login")
+        delegate?.loginSuccess()
+        getInfo()
+    }
+    
+    // 토큰 갱신
+    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
+        
+    }
+    
+    // 로그아웃
+    func oauth20ConnectionDidFinishDeleteToken() {
+        
+    }
+    
+    // 에러처리
+    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
+        
+        delegate?.loginFailed(err: "DEBUG == 네이버 로그인 실패")
+    }
+    
+    func getInfo() {
+
+        guard let _ = naverLoginInstance?.isValidAccessTokenExpireTimeNow() else { return }
+
+        guard let tokenType = naverLoginInstance?.tokenType else { return }
+        guard let accessToken = naverLoginInstance?.accessToken else { return }
+
+        let urlStr = "https://openapi.naver.com/v1/nid/me"
+        let url = URL(string: urlStr)!
+
+        let authorization = "\(tokenType) \(accessToken)"
+
+        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
+
+        req.responseJSON { response in
+            guard let result = response.value as? [String: Any] else { return }
+            guard let object = result["response"] as? [String: Any] else { return }
+            guard let name = object["name"] as? String else { return }
+            guard let email = object["email"] as? String else { return }
+            guard let id = object["id"] as? String else {return}
+
+            print(email)
+            print(name)
+            print(id)
+
         }
     }
 }
