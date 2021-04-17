@@ -12,6 +12,7 @@
 		A9340B5F26271A0100D78496 /* LoginAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9340B5E26271A0100D78496 /* LoginAPIManager.swift */; };
 		A947F6AB262B223E001C4814 /* HomeAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947F6AA262B223E001C4814 /* HomeAPIManager.swift */; };
 		A947F6B3262B24BF001C4814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947F6B2262B24BF001C4814 /* Constants.swift */; };
+		A947F6B8262B2D59001C4814 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947F6B7262B2D59001C4814 /* Extension+UIImageView.swift */; };
 		A94D51A9262A9DF30063C2C3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51A8262A9DF30063C2C3 /* LoginViewModel.swift */; };
 		A94D51AE262AA9FE0063C2C3 /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51AD262AA9FE0063C2C3 /* LoginDelegate.swift */; };
 		A94D51B3262ACA960063C2C3 /* SIgnInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94D51B2262ACA960063C2C3 /* SIgnInViewController.swift */; };
@@ -66,6 +67,7 @@
 		A9340B5E26271A0100D78496 /* LoginAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIManager.swift; sourceTree = "<group>"; };
 		A947F6AA262B223E001C4814 /* HomeAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIManager.swift; sourceTree = "<group>"; };
 		A947F6B2262B24BF001C4814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A947F6B7262B2D59001C4814 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
 		A94D51A8262A9DF30063C2C3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A94D51AD262AA9FE0063C2C3 /* LoginDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
 		A94D51B2262ACA960063C2C3 /* SIgnInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				A97A2B9326088A2C00BC9BF0 /* HTTPEnum.swift */,
 				A97A2BA3260B17FB00BC9BF0 /* KeyChainModel.swift */,
 				A94D51AD262AA9FE0063C2C3 /* LoginDelegate.swift */,
+				A947F6B7262B2D59001C4814 /* Extension+UIImageView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F1D73B2605AB2F005F0B3C /* MainViewController.swift in Sources */,
+				A947F6B8262B2D59001C4814 /* Extension+UIImageView.swift in Sources */,
 				A9F1D7992605DBEB005F0B3C /* SignUpModel.swift in Sources */,
 				A947F6AB262B223E001C4814 /* HomeAPIManager.swift in Sources */,
 				A94D51AE262AA9FE0063C2C3 /* LoginDelegate.swift in Sources */,

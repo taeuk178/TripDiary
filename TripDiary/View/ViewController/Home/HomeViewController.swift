@@ -9,7 +9,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    
+    var tourListData: [TourListDataArrayModel] = []
+    
     @IBOutlet weak var tableView: UITableView!
+    
     let travelList: [HomeDataModel] = [
         HomeDataModel(locateName: "홍천", travelPeriod: "7/9 - AM 08:00", travelImage: #imageLiteral(resourceName: "yeongwol")),
         HomeDataModel(locateName: "남이섬", travelPeriod: "7/9 - AM 10:00", travelImage: #imageLiteral(resourceName: "yeosu")),
@@ -24,6 +28,16 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
+        
+        
+        let homeApi = HomeAPIManager()
+        homeApi.requestHomeTourList { [weak self] result in
+            self?.tourListData = result
+            
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -38,18 +52,19 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return travelList.count
+        return tourListData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "myTravel", for: indexPath) as? HomeViewControllerCell else { return UITableViewCell() }
         
-        cell.locateName.text = travelList[indexPath.row].locateName
-        cell.travelPeriod.text = travelList[indexPath.row].travelPeriod
+        cell.locateName.text = tourListData[indexPath.row].tourspotname
+        cell.travelPeriod.text = tourListData[indexPath.row].tourTime
         
         cell.travelPicture.sizeToFit()
-        cell.travelPicture.image = travelList[indexPath.row].travelImage
+        cell.travelPicture.setImageUrl(tourListData[indexPath.row].tourimg)
         cell.travelPicture.layer.cornerRadius = 15
+        
         return cell
     }
     
