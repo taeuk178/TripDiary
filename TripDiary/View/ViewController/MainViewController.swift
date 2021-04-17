@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     
     
     //MARK: - Properties
+    let loginVM = LoginViewModel()
     
     @IBOutlet weak var LoginStackView: UIStackView!
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
@@ -62,14 +63,15 @@ class MainViewController: UIViewController {
         
         
         //Facebook
-        let loginButton = FBLoginButton()
-        loginButton.center = view.center
-        loginButton.delegate = self
+        let faceBookLoginButton = FBLoginButton()
+        faceBookLoginButton.center = view.center
+        faceBookLoginButton.delegate = self
 
         
         LoginStackView.addArrangedSubview(naverLoginButton)
+        LoginStackView.addArrangedSubview(kakaoLoginButton)
         LoginStackView.addArrangedSubview(googleButton)
-        LoginStackView.addArrangedSubview(loginButton)
+        LoginStackView.addArrangedSubview(faceBookLoginButton)
         
         
                 
@@ -109,40 +111,26 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
+    // MARK: - kakao login
+    
     @objc func kakaoLogin(_ sender: UIButton) {
-        // kakao login
-        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-            if let error = error {
-                print(error)
-            }
-            else {
-                print("loginWithKakaoAccount() success.")
-                self.mainViewPresenter()
-                //do something
-                _ = oauthToken
-            }
-            
-            UserApi.shared.me() {(user, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    print("me() success.")
-
-                    //do something
-                    guard let userEmail = user?.kakaoAccount?.email else { return }
-                    print(userEmail)
-                }
-            }
+        
+        loginVM.kakaoLogin {
+            self.mainViewPresenter()
         }
     }
-    
+    /*
+     로그인 한다. kakaoLogin 실행
+     성공시 유저정보를 받아옴
+     파라미터에 옮겨 로그인 실행
+     
+     */
     @objc func naverLogin(_ sender: UIButton) {
         
         
         naverLoginInstance?.delegate = self
         naverLoginInstance?.requestThirdPartyLogin()
-        mainViewPresenter()
+        
     }
     
     func mainViewPresenter() {
@@ -226,11 +214,11 @@ extension MainViewController: ASAuthorizationControllerPresentationContextProvid
             
             // "id" 더 상세하게
             if let idData = userIdentifier.data(using: String.Encoding.utf8) {
-                print(Keychain.save(key: "id", data: idData))
+                print(Keychain.save(key: "AppleID", data: idData))
             }
-            if let idData = Keychain.load(key: "id") {
+            if let idData = Keychain.load(key: "AppleID") {
                 if let id = String(data: idData, encoding: .utf8) {
-                    print("id: \(id)")
+                    print("AppleID: \(id)")
                 }
             }
             // 계정 정보 가져오기

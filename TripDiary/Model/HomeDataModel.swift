@@ -8,7 +8,9 @@
 import UIKit
 
 struct HomeDataModel {
+    
     let locateName: String
     let travelPeriod: String
     let travelImage: UIImage
+    
 }

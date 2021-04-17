@@ -39,8 +39,8 @@ class SignUpViewController: UIViewController {
         
         if userIdTextField.text != "" && pwTextField.text != "" && pwConfirmTextfield.text != "" {
             if pwTextField.text == pwConfirmTextfield.text {
-                let signupVM = SignUpViewModel()
-                signupVM.requestSignUp(email: userIdTextField.text ?? "" , password: pwConfirmTextfield.text ?? "")
+//                let signupVM = SignUpViewModel()
+//                signupVM.requestSignUp(email: userIdTextField.text ?? "" , password: pwConfirmTextfield.text ?? "")
                 
                 
             }else {
