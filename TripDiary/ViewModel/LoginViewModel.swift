@@ -30,7 +30,7 @@ class LoginViewModel: NSObject {
                 
                 UserApi.shared.me() {(user, error) in
                     if let error = error {
-                        print(error)
+                        self.delegate?.loginFailed(err: error.localizedDescription)
                     }
                     else {
                         print("kakao, me() success.")
@@ -102,13 +102,14 @@ extension LoginViewModel: NaverThirdPartyLoginConnectionDelegate {
 }
 
 extension LoginViewModel: GIDSignInDelegate {
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         if let error = error {
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
                 print("The user has not signed in before or they have since signed out.")
             } else {
-                print("\(error.localizedDescription)")
+                delegate?.loginFailed(err: error.localizedDescription)
             }
             return
         }
@@ -129,5 +130,83 @@ extension LoginViewModel: GIDSignInDelegate {
         } else {
             print("Error : User Data Not Found")
         }
+    }
+}
+
+// MARK:- LoginButtonDelegate
+extension LoginViewModel: LoginButtonDelegate {
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        if let error = error {
+            print("Facebook login with error: \(error.localizedDescription)")
+//        } else if let result = result {
+//            let declinedPermissionSet = result.declinedPermissions
+//            let grantedPermissionSet = result.grantedPermissions
+//            let isCancelled = result.isCancelled
+//            let facebookToken = result.token?.tokenString ?? ""
+//
+        }
+        print(result?.token?.tokenString) //YOUR FB TOKEN
+        let req = GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], tokenString: result?.token?.tokenString, version: nil, httpMethod: .get)
+        
+        req.start(completionHandler: { (connection, result, err) -> Void in
+            if(error == nil)
+            {
+                self.delegate?.loginSuccess()
+                print("result \(String(describing: result))")
+            }
+            else
+            {
+                self.delegate?.loginFailed(err: error?.localizedDescription ?? "")
+            }
+        })
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        print("User has logged out Facebook")
+    }
+}
+
+//MARK: - Apple Login
+extension LoginViewModel: ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        let mainVC = MainViewController()
+        return mainVC.view.window!
+    }
+    
+    // Apple ID 연동 성공 시
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        switch authorization.credential {
+        case let appleIDCredetial as ASAuthorizationAppleIDCredential:
+            let userIdentifier = appleIDCredetial.user
+            let fullName = appleIDCredetial.fullName
+            let email = appleIDCredetial.email
+            
+            // "id" 더 상세하게
+            if let idData = userIdentifier.data(using: String.Encoding.utf8) {
+                print(Keychain.save(key: "AppleID", data: idData))
+            }
+            if let idData = Keychain.load(key: "AppleID") {
+                if let id = String(data: idData, encoding: .utf8) {
+                    print("AppleID: \(id)")
+                }
+            }
+            // 계정 정보 가져오기
+            print("User ID : \(userIdentifier)")
+            print("User Email : \(email ?? "")")
+            print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
+            
+            delegate?.loginSuccess()
+            
+        default:
+            break
+        }
+    }
+    
+    // Apple ID 연동 실패 시
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        delegate?.loginFailed(err: error.localizedDescription)
     }
 }
