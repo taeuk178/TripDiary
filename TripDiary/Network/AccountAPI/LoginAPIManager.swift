@@ -39,5 +39,3 @@ struct LoginAPIManager {
             }
     }
 }
-//tes123@naver.com
-//1234

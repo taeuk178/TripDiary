@@ -34,6 +34,7 @@ class LoginViewModel: NSObject {
                     }
                     else {
                         print("kakao, me() success.")
+                        // completion Handler 메소드 실행
                         completion()
                         //do something
                         guard let userEmail = user?.kakaoAccount?.email else { return }
@@ -43,7 +44,9 @@ class LoginViewModel: NSObject {
             }
         }
     }
-    
+    deinit {
+        print("deinit")
+    }
     
 }
 
