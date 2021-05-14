@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    
+    // MARK: - Properties
     var tourListData: [TourListDataArrayModel] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -37,6 +37,8 @@ class HomeViewController: UIViewController {
 
 }
 
+// MARK: - Delegate
+
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -44,6 +46,8 @@ extension HomeViewController: UITableViewDelegate {
     }
     
 }
+
+// MARK: - DataSource
 
 extension HomeViewController: UITableViewDataSource {
     

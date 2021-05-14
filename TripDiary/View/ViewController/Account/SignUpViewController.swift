@@ -11,6 +11,8 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    // MARK: - Properties
+    
     @IBOutlet weak var userIdTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var pwConfirmTextfield: UITextField!
@@ -57,12 +59,15 @@ class SignUpViewController: UIViewController {
     }
 }
 
+// MARK: - Delegate
+
 extension SignUpViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
 }
+
 
 extension UIViewController {
     

@@ -38,10 +38,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if scheme.contains("com.googleusercontent.apps") {
             GIDSignIn.sharedInstance().handle(URLContexts.first?.url)
         }
+        
         guard let url = URLContexts.first?.url else { return }
         if (AuthApi.isKakaoTalkLoginUrl(url)) {
             _ = AuthController.handleOpenUrl(url: url)
         }
+        
         ApplicationDelegate.shared.application(
                 UIApplication.shared,
                 open: url,

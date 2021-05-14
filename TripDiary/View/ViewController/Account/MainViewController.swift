@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     
     
     //MARK: - Properties
+    
     let loginVM = LoginViewModel()
     
     @IBOutlet weak var LoginStackView: UIStackView!

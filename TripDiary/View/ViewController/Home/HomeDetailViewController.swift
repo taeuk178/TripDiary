@@ -9,6 +9,7 @@ import UIKit
 
 class HomeDetailViewController: UIViewController {
 
+    // MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -19,9 +20,13 @@ class HomeDetailViewController: UIViewController {
     }
 }
 
+// MARK: - Delegate
+
 extension HomeDetailViewController: UITableViewDelegate {
     
 }
+
+// MARK: - DataSource
 
 extension HomeDetailViewController: UITableViewDataSource {
     
